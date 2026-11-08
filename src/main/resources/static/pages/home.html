@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="module" src="../script.js"></script>
+
+    <title>Ecommerce</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <a href="#" class="logo">
+              <img src="" alt="" />
+              <span class="logo-text"
+                >Apex<span class="text-accent">Keys</span>
+              </span>
+            </a>
+          </div>
+          <div class="col">
+            <div class="search">
+              <form action="" class="search-form">
+                <button type="submit">
+                  <re-icon icon="search4"></re-icon>
+                </button>
+                <input
+                  type="text"
+                  name="search"
+                  id="search-bar"
+                  placeholder="Search for products..."
+                />
+              </form>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="nav-right">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  id="userDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Andrea</a
+                >
+                <ul
+                  class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow"
+                  aria-labelledby="userDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item" href="./profilo.html"
+                      >My Account</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./ordini.html">My Orders</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item text-danger" href="./logout.html"
+                      >Logout</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="cart-link">
+                <a href="./cart.html" class="btn">🛒</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h1 class="hero-title">
+              CRAFT THE ULTIMATE
+              <span class="text-accent">TYPING EXPERIENCE</span>
+            </h1>
+            <p class="hero-description text-muted">
+              Explore our curated selection of custom mechanical keyboards,
+              pre-lubed switches, and high-grade PBT keycap sets designed for
+              superior comfort and a satisfying acoustic profile.
+            </p>
+            <a href="#products" class="btn btn-primary">Explore Shop</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="brands">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="brand-container">
+              <span class="brand-logo">DUCKY</span>
+              <span class="brand-logo">KEYCHRON</span>
+              <span class="brand-logo">GLORIOUS</span>
+              <span class="brand-logo">CHERRY</span>
+              <span class="brand-logo">AKKO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-3">
+            <aside>
+              <!-- Pulsante Filtri visibile solo su Mobile/Tablet -->
+              <button
+                class="btn btn-outline-secondary w-100 d-lg-none mb-3"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filterSidebar"
+              >
+                <i class="bi bi-funnel"></i> Filter Products
+              </button>
+
+              <!-- Contenitore Sidebar: statico su Desktop, Offcanvas su Mobile -->
+              <div
+                class="offcanvas-lg offcanvas-start bg-card p-3 p-lg-0 border-lg-end border-secondary"
+                id="filterSidebar"
+                tabindex="-1"
+              >
+                <div
+                  class="offcanvas-header border-bottom border-secondary mb-3"
+                >
+                  <h5 class="offcanvas-title">Filters</h5>
+                  <button
+                    type="button"
+                    class="btn btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                    data-bs-target="#filterSidebar"
+                    aria-label="Close"
+                  ></button>
+                </div>
+
+                <div class="offcanvas-body d-block">
+                  <h5 class="mb-3 d-none d-lg-block">Filter Products</h5>
+
+                  <!-- Macro-Filtri tramite Accordion Flush -->
+                  <div
+                    class="accordion accordion-flush bg-transparent"
+                    id="filtersAccordion"
+                  >
+                    <!-- Macro-categoria: PRODUCTS -->
+                    <div class="accordion-item bg-transparent border-secondary">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#filterProducts"
+                        >
+                          Products
+                        </button>
+                      </h2>
+                      <div
+                        id="filterProducts"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#filtersAccordion"
+                      >
+                        <div class="accordion-body pt-1 pb-3 text-muted">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Macro-categoria: KEYBOARDS
+                    <div class="accordion-item bg-transparent border-secondary">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#filterKeyboards"
+                        >
+                          Keyboards
+                        </button>
+                      </h2>
+                      <div
+                        id="filterKeyboards"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#filtersAccordion"
+                      >
+                        <div class="accordion-body pt-1 pb-3 text-muted">
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="Full-size Keyboards"
+                              value="Full-size Keyboards"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="Full-size Keyboards"
+                              >Full-size Keyboards</label
+                            >
+                          </div>
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="75% Keyboards"
+                              value="75% Keyboards"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="75% Keyboards"
+                              >75% Keyboards</label
+                            >
+                          </div>
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="TKL Keyboards"
+                              value="TKL Keyboards"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="TKL Keyboards"
+                              >TKL Keyboards</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+
+                    <!-- Macro-categoria: SWITCHES -->
+                    <!-- <div class="accordion-item bg-transparent border-secondary">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#filterSwitches"
+                        >
+                          Switches
+                        </button>
+                      </h2>
+                      <div
+                        id="filterSwitches"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#filtersAccordion"
+                      >
+                        <div class="accordion-body pt-1 pb-3 text-muted">
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="switchLinear"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="switchLinear"
+                              >Linear</label
+                            >
+                          </div>
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="switchTactile"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="switchTactile"
+                              >Tactile</label
+                            >
+                          </div>
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="switchClicky"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="switchClicky"
+                              >Clicky</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+                    <!-- Macro-categoria: KEYCAPS -->
+                    <!-- <div class="accordion-item bg-transparent border-secondary">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#filterKeycaps"
+                        >
+                          Keycaps
+                        </button>
+                      </h2>
+                      <div
+                        id="filterKeycaps"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#filtersAccordion"
+                      >
+                        <div class="accordion-body pt-1 pb-3 text-muted">
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="pbtDoubleShot"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="pbtDoubleShot"
+                              >PBT Double-Shot</label
+                            >
+                          </div>
+                          <div class="form-check mb-2">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="absDyeSub"
+                            />
+                            <label
+                              class="form-check-label small"
+                              for="absDyeSub"
+                              >ABS Dye-Sub</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+                  <!-- Pulsante Reset Filtri -->
+                  <button class="btn btn-sm btn-outline-secondary w-100 mt-4">
+                    Reset Filters
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div class="col-9 d-flex">
+            <div class="row gy-4" id="products"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal fade cart-modal"
+      id="cartModal1"
+      tabindex="-1"
+      aria-labelledby="cartModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-card border border-secondary">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title" id="cartModalLabel1">
+              Item Added To Cart!
+            </h5>
+            <button
+              type="button"
+              class="btn btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body text-center py-4 d-flex flex-column align-items-center"
+          >
+            <div class="text-accent fs-1 mb-3 p-2 confirm-icon">
+              <re-icon icon="cart-add" style="margin-bottom: 8px"></re-icon>
+            </div>
+            <h5 class="">Apex Pro Wireless</h5>
+            <p class="text-muted small">
+              Item successfully <span class="text-accent">added</span> to your
+              shopping cart.
+            </p>
+          </div>
+          <div
+            class="modal-footer border-top border-secondary justify-content-between"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Continue Shopping
+            </button>
+            <a href="./cart.html" class="btn btn-primary">Go To Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade info-modal"
+      id="infoModal1"
+      tabindex="-1"
+      aria-labelledby="infoModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border border-secondary">
+          <div class="modal-header border-bottom border-secondary">
+            <h5 class="modal-title">Apex Pro Wireless</h5>
+            <button
+              type="button"
+              class="btn btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row align-items-center" style="height: 100%">
+              <div class="col-md-6">
+                <img
+                  src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800"
+                  class="img-fluid rounded-4 border border-secondary"
+                  alt="Apex Pro Zoom"
+                />
+              </div>
+
+              <!-- ADD justify-content-between for forcing price at the bottom -->
+              <div class="col-md-6 mt-3 mt-md-0 d-flex flex-column h-100">
+                <div class="modal-description scrollable">
+                  <h6 class="text-accent fw-bold text-uppercase small">
+                    Specifiche Tecniche
+                  </h6>
+                  <p class="text-muted small mb-3">
+                    Progettata per offrire il massimo comfort di digitazione e
+                    un profilo acustico thocky senza compromessi.
+                  </p>
+                  <ul class="text-muted small ps-3 mb-3">
+                    <li>Layout 75% compatto con manopola in alluminio</li>
+                    <li>Switch pre-lubrificati di fabbrica (Linear)</li>
+                    <li>Keycaps in PBT double-shot di alta durata</li>
+                    <li>
+                      Tripla modalità di connessione (Bluetooth 5.1, 2.4GHz,
+                      USB-C)
+                    </li>
+                  </ul>
+                  <p class="text-muted small mb-0">
+                    Qwertykeys and Neo Studio are renowned for their
+                    industry-leading craftsmanship, and Ticktype Evoworks shares
+                    the same commitment to excellence. The anodized cases of the
+                    Evo80 undergo a superior 220-mesh sandblasting process
+                    before anodization, and our spray-coated cases are colored
+                    with ultra-fine spray coating powders. Whichever color you
+                    choose, you'll enjoy the same smooth and vivid finish.<br /><br /><br />Each
+                    assembled Evo80 keyboard includes:<br />- CNC aluminum case
+                    <br />- Hotswap PCB <br />- daughterboard and magnetic
+                    connector<br />- switch plate<br />- Switches with spares<br />-
+                    1* set of keycaps in color to match the case<br />- 1*
+                    acoustic package (PET sheet, IXPE sheet, plate foam, 2*
+                    Poron case foam)<br />- stabilizers<br />- 6* butterfly leaf
+                    springs<br />- gaskets with spares<br />- 4* silicone corner
+                    protectors<br />- 4* rubber feet<br />- 2* 4000mAh
+                    batteries<br />- carrying case<br />- USB-C cable<br />-
+                    2.4gHz dongle<br />- Mac add-on kit<br />- spare screws<br />-
+                    spare leaf spring dampeners<br />- spare case silicone
+                    dampeners<br /><br />Please note that all photos are for
+                    reference only; item color, keycaps, and legends may differ.
+                  </p>
+                </div>
+
+                <div class="pt-2 mt-1 border-top">
+                  <h6 class="text-accent fw-bold text-uppercase small mb-2">
+                    Quantity
+                  </h6>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div
+                      class="d-flex rounded-1 border border-secondary modal-quantity"
+                    >
+                      <button class="btn">-</button>
+                      <input
+                        type="number"
+                        name="quantity"
+                        id="quantity"
+                        value="1"
+                      />
+                      <button class="btn">+</button>
+                    </div>
+                    <span class="fw-bold fs-4">€189.99</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer border-top border-secondary">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              data-bs-dismiss="modal"
+            >
+              Chiudi
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              data-bs-toggle="modal"
+              data-bs-target="#cartModal1"
+            >
+              Aggiungi al carrello
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

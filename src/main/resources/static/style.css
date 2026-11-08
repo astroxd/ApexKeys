@@ -1,0 +1,456 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Sfondi Scuri */
+  --bg-main: #0b0f19; /* Sfondo generale (Nero/Blu scuro profondo) */
+  --bg-card: #161f30; /* Sfondo per card prodotti, modali e input */
+  --bg-nav: rgba(
+    11,
+    15,
+    25,
+    0.85
+  ); /* Navbar semi-trasparente con effetto glassmorphism */
+
+  /* Testi Leggibili */
+  --text-main: #f8fafc; /* Testo principale (Bianco morbido per non stancare gli occhi) */
+  --text-muted: #94a3b8; /* Testo secondario, descrizioni e icone disattivate */
+
+  /* Bordi e Divisori */
+  --border-color: #243046; /* Bordi sottili ma visibili */
+
+  /* Colore d'Accento ApexKeys (#e8294b) */
+  --accent-base: #e8294b; /* Rosso brillante per bottoni e badge */
+  --accent-hover: #ff3b5b; /* Hover leggermente più luminoso in Dark Mode */
+  --accent-active: #c41838; /* Click/Pressione */
+  --accent-light: rgba(
+    232,
+    41,
+    75,
+    0.15
+  ); /* Sfondo delicato per tag e notifiche */
+  --accent-glow: rgba(
+    232,
+    41,
+    75,
+    0.35
+  ); /* Effetto luce/glow attorno ai bottoni */
+
+  --font-heading: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-body: "Roboto", system-ui, -apple-system, sans-serif;
+
+  /* Override bootstrap */
+  --bs-primary: var(--accent-base);
+  --bs-primary-rgb: 232, 41, 75;
+  --bs-secondary: var(--text-muted);
+  --bs-secondary-rgb: rgb(var(--text-muted));
+  --bs-body-bg: var(--bg-main);
+  --bs-body-color: var(--text-main);
+  --bs-accordion-active-color: var(--text-main);
+}
+
+.accordion {
+  --bs-accordion-active-color: var(--text-main);
+}
+
+button:not(.btn) {
+  border: none;
+  outline: none;
+  background-color: var(--accent-base);
+  color: var(--text-main);
+}
+
+button:focus:not(.btn),
+.btn:focus:is(.btn-primary) {
+  border-color: var(--accent-base);
+}
+
+button:active:not(.btn),
+.btn:active:is(.btn-primary) {
+  border-color: var(--accent-active) !important;
+}
+
+input:focus-visible {
+  outline-color: var(--accent-base);
+}
+
+:focus-visible {
+  outline-color: var(--accent-base);
+}
+
+.btn-primary {
+  --bs-btn-color: var(--text-main);
+  --bs-btn-active-color: var(--text-main);
+  --bs-btn-disabled-color: var(--text-main);
+  --bs-btn-bg: var(--accent-base);
+  --bs-btn-border-color: var(--accent-base);
+  --bs-btn-hover-bg: var(--accent-hover);
+  --bs-btn-hover-border-color: var(--accent-hover);
+  --bs-btn-active-bg: var(--accent-active);
+  --bs-btn-active-border-color: var(--accent-active);
+  --bs-btn-focus-shadow-rgb: 232, 41, 75;
+  --bs-btn-disabled-bg: rgb(190, 34, 62);
+  --bs-btn-disabled-border-color: var(--accent-light);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--accent-base);
+  --bs-btn-active-color: var(--text-main);
+  --bs-btn-disabled-color: var(--text-main);
+  --bs-btn-border-color: var(--accent-base);
+  --bs-btn-hover-bg: var(--accent-base);
+  --bs-btn-hover-border-color: var(--accent-base);
+  --bs-btn-active-bg: var(--accent-active);
+  --bs-btn-active-border-color: var(--accent-active);
+  --bs-btn-focus-shadow-rgb: 232, 41, 75;
+  --bs-btn-disabled-bg: rgb(190, 34, 62);
+  --bs-btn-disabled-border-color: var(--accent-light);
+}
+
+button:not(.btn):hover {
+  background-color: var(--accent-hover);
+}
+
+button:not(.btn):active {
+  background-color: var(--accent-active);
+}
+
+button:disabled,
+.btn:disabled {
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+input {
+  color: var(--text-main);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="checkbox"]:checked,
+.form-check-input:checked {
+  background-color: var(--accent-active);
+  border-color: var(--accent-active);
+}
+
+.form-check-input:focus {
+  border-color: var(--accent-active);
+  box-shadow: 0 0 0 0.25rem var(--accent-glow);
+}
+
+.text-accent {
+  color: var(--accent-base);
+}
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+nav {
+  background-color: var(--bg-nav);
+  /* filter: blur(1px); */
+  /* position: sticky; */
+}
+
+.logo {
+  text-decoration: none;
+  padding-block: 1rem;
+  display: inline-flex;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: var(--text-main);
+}
+
+.search {
+  display: flex;
+}
+
+.search-form {
+  display: inline-flex;
+  width: 100%;
+  background-color: var(--bg-card);
+  padding: 4px 8px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+}
+
+.search button {
+  margin-right: 4px;
+}
+
+.search input {
+  width: 100%;
+  margin-right: 4px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.search input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-form:has(input:focus) {
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.search button {
+  padding: 6px;
+  background-color: transparent;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.hero {
+  background: url("../static/assets/hero.png") no-repeat top right;
+  background-color: var(--bg-card);
+}
+
+.hero-title {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  margin-bottom: 2rem;
+}
+
+.hero .btn {
+  padding: 8px 48px;
+  border-radius: 62px;
+  font-size: 14px;
+  margin-bottom: 4rem;
+}
+
+.brands {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 3rem 0;
+}
+
+.brand-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand-logo {
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.5;
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.brand-logo:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+.products {
+  margin-top: 3rem;
+}
+
+.card {
+  --bs-card-spacer-y: 0.5rem;
+  --bs-card-spacer-x: 0.5rem;
+  --bs-card-bg: var(--bg-card);
+  --bs-card-border-color: var(--bg-nav);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card:hover {
+  --bs-card-border-color: var(--accent-base);
+  transform: translateY(-4px);
+}
+
+.card img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: white;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.card-description {
+  font-size: 0.8em;
+}
+
+.card-rating-container {
+  display: flex;
+}
+
+.card-rating-container re-icon {
+  color: gold;
+}
+
+.card-price {
+  font-weight: 700;
+  font-size: 1.25em;
+}
+
+.card-buttons button {
+  font-size: 0.8em;
+}
+
+/** INFO MODAL **/
+
+.info-modal .modal-content {
+  height: 70vh;
+}
+
+.info-modal .modal-body {
+  min-height: 0;
+}
+
+.info-modal .modal-description {
+  max-height: 100%;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+.scrollable::-webkit-scrollbar-thumb {
+  background: var(--accent-base);
+  border-radius: 4px;
+}
+
+.info-modal .modal-quantity {
+  width: 40%;
+  /* TODO media query */
+}
+.info-modal .modal-quantity input {
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+}
+
+.info-modal .modal-quantity button,
+.info-modal .modal-quantity button:active:not(:focus),
+.info-modal .modal-quantity button:disabled {
+  border-color: transparent !important;
+}
+
+/** CART MODAL **/
+.cart-modal .confirm-icon {
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  border: 1px solid var(--accent-base);
+}
+
+/* Checkbox personalizzate con Crimson Accent */
+
+.accordion-button::after {
+  filter: invert(1);
+  /* Rende la freccetta bianca in Dark Mode */
+}
+
+/** CART PAGE **/
+.cart-image {
+  width: 50%;
+}
+.cart-image img {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: white;
+}
+
+.cart-quantity {
+  /* width: 50%; */
+}
+
+.cart-quantity input {
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+}
+
+#cart-products > li:last-child {
+  border-bottom: none !important;
+  /* padding-bottom: 0 !important; */
+}
+
+#cart-products > li re-icon {
+  color: var(--accent-base);
+}
+
+.price-decrease {
+  color: var(--accent-base);
+}
+
+#empty-cart-section re-icon {
+  font-size: 3rem;
+  color: var(--accent-base);
+}

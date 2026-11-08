@@ -1,0 +1,668 @@
+<?xml version='1.0' encoding='utf-8'?>
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation='product.xsd'>
+    <product>
+        <id>9040628351276</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>4.8</rating>
+        <rating_count>17</rating_count>
+        <title>Cherry MX2A Blue 60g Clicky Switch</title>
+        <price>€0,45</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2870664495404">PCB</option>
+                <option id="2870664528172">Plate</option>
+            </option_group>
+            <option_group name="LED Support:">
+                <option id="2870664429868">SMD</option>
+                <option id="2870664462636">RGB LED</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>60g actuation force</item>
+                <item>4.00mm total travel</item>
+                <item>2.20mm pretravel</item>
+                <item>Stem reinforced with ribs to reduce wobble</item>
+                <item>Gold cross point contact</item>
+                <item>Diamond polished stem and spring guidance</item>
+            </list>
+            <div id="0">Immerse yourself in the next chapter of mechanical brilliance with the MX2A. Harness the power of the industry-leading Gold Cross Point Contact System, ensuring every keystroke is met with unrivaled precision. Delight in butter-smooth typing, enveloped by the harmony of optimized acoustics. This is more than just a switch; it's the pinnacle of MX performance.</div>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16991-5Q3Y7-Cherry-MX-20-Blue-Clicky-Plate-Mount-Switches_eb467ad5-d68b-4564-a658-6ed16a2c2d5f.png?v=1708700941&amp;width=368" alt="Cherry MX2A Blue 60g Clicky MKPMQ7AWS4 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18614-Z181K-Cherry-MX2A-Blue-60g-Clicky.png?v=1708700941&amp;width=678" alt="Cherry MX2A Blue 60g Clicky MKPMQ7AWS4 |61671|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18614-UZAYQ-Cherry-MX2A-Blue-60g-Clicky.jpg?v=1708700942&amp;width=1807" alt="Cherry MX2A Blue 60g Clicky MKPMQ7AWS4 |61672|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/17029-6RLDK-Cherry-MX2A-Blue-RGB-Clicky-PCB-Mount-Switches_48487dbe-6d64-4eed-a83b-847437f2f98f.png?v=1708700941&amp;width=368" alt="Cherry MX2A Blue 60g Clicky MKPMQ7AWS4 |17029|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/preview_images/hqdefault_de959684-d909-41db-a705-d918e97856db.jpg?v=1709325099&amp;width=480" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/preview_images/hqdefault_27956343-7bda-4a7d-9677-9b571334cf0a.jpg?v=1720204077&amp;width=480" />
+        </images>
+    </product>
+    <product>
+        <id>8928336904492</id>
+        <type>Keyboard Switches</type>
+        <vendor>Greetech</vendor>
+        <available>true</available>
+        <title>Greetech Red 45g Linear Switch</title>
+        <price>€0,04</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2575616147756">PCB</option>
+                <option id="2575616180524">Plate</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>45g actuation force</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1356-EXMKK-Greetech-Red-Switches-PCB-Mount-Linear.jpg?v=1707268266&amp;width=875" alt="Greetech Red Switch MKMG6YDV3O |1356|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5299-H1KH4-Greetech-Red-Switch.png?v=1707268266&amp;width=575" alt="Greetech Red Switch MKMG6YDV3O |0|" />
+        </images>
+    </product>
+    <product>
+        <id>9039262056748</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>4.9</rating>
+        <rating_count>20</rating_count>
+        <title>Cherry MX2A Silent Red 45g Linear Switch</title>
+        <price>€0,45</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2866477859116">PCB</option>
+                <option id="2866477826348">Plate</option>
+            </option_group>
+            <option_group name="LED Support:">
+                <option id="3943444218156">Single LED</option>
+                <option id="2866477760812">SMD</option>
+                <option id="2866477793580">RGB LED</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>45g actuation force</item>
+                <item>3.70mm total travel</item>
+                <item>1.90mm pretravel</item>
+                <item>Updated, barrel-shaped, stainless steel spring</item>
+                <item>High-precision ring lubrication applied to bottom housing</item>
+                <item>Diamond polished stem and spring guidance</item>
+                <item>Gold cross point contact</item>
+            </list>
+            <div id="0">Immerse yourself in the next chapter of mechanical brilliance with the MX2A. Harness the power of the industry-leading Gold Cross Point Contact System, ensuring every keystroke is met with unrivaled precision. Delight in butter-smooth typing, enveloped by the harmony of optimized acoustics. This is more than just a switch; it's the pinnacle of MX performance.</div>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16992-XP3TV-Cherry-MX-20-Silent-Red-Linear-Plate-Mount-Switches_b02c0f7a-e4be-404d-9089-6509e35cb6d7.png?v=1708622612&amp;width=368" alt="Cherry MX2A Silent Red 45g * Linear Switch MK5HHSQU63 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18599-LVEYS-Cherry-MX2A-Silent-Red-45g-Linear-Switch.png?v=1708622612&amp;width=678" alt="Cherry MX2A Silent Red 45g * Linear Switch MK5HHSQU63 |61661|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16998-95YC8-Cherry-MX-20-Silent-Red-RGB-Linear-Plate-Mount-Switches_03513782-0e50-4cab-a7b1-f7a7a8d1c1ac.png?v=1708622612&amp;width=368" alt="Cherry MX2A Silent Red 45g * Linear Switch MK5HHSQU63 |16998|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/preview_images/hqdefault_d60e85bb-9768-495c-aea4-b891229af580.jpg?v=1720199526&amp;width=480" />
+        </images>
+    </product>
+    <product>
+        <id>9716888830252</id>
+        <type>Keyboard Switches</type>
+        <vendor>Keygeek</vendor>
+        <available>false</available>
+        <rating>4.2</rating>
+        <rating_count>4</rating_count>
+        <title>Keygeek Neo Oat 36g Linear PCB Mount Switch</title>
+        <price>€0,31</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>36g actuation force</item>
+                <item>45g bottom out force</item>
+                <item>2.0mm pretravel</item>
+                <item>3.6mm total travel</item>
+                <item>PA66 milky nylon top housing</item>
+                <item>PA6 milky nylon bottom housing</item>
+                <item>L4 stem material</item>
+                <item>22mm spring</item>
+                <item>Developed by QwertyKeys and manufactured by Keygeek for the Evo80</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/22905-GLH6E-Keygeek-Oat-36g-Linear.jpg?v=1731529085&amp;width=628" alt="Keygeek Oat 36g Linear PCB Mount MKPVUZYBR6 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/22905-GJ29M-HMX-Oat-36g-Linear.jpg?v=1731529085&amp;width=2048" alt="Keygeek Oat 36g Linear PCB Mount MKPVUZYBR6 |72425|" />
+        </images>
+    </product>
+    <product>
+        <id>8928161169708</id>
+        <type>Keyboard Switches</type>
+        <vendor>Kailh</vendor>
+        <available>true</available>
+        <title>Kailh Brown 50g Tactile Switch</title>
+        <price>€0,15</price>
+        <options>
+            <option_group name="LED Support:">
+                <option id="2574914715948">RGB LED</option>
+                <option id="2574914748716">Single LED</option>
+                <option id="2574914781484">SMD</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>50g actuation force</item>
+                <item>2.00mm pre-travel</item>
+                <item>4.00mm total travel</item>
+                <item>Nylon top and bottom housing</item>
+                <item>POM stem</item>
+                <item>Stainless steel spring</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5287-QWJ8F-Kailh-Brown-Switch.png?v=1725483602&amp;width=200" alt="Kailh Brown Switch MKBDJJ5QF4 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5287-KEQWL-Kailh-Brown-Switch.png?v=1725483602&amp;width=200" alt="Kailh Brown Switch MKBDJJ5QF4 |42545|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5287-FU4GG-Kailh-Brown-Switch.png?v=1725483602&amp;width=200" alt="Kailh Brown Switch MKBDJJ5QF4 |42546|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5287-NS5BN-Kailh-Brown-Switch.png?v=1725483602&amp;width=200" alt="Kailh Brown Switch MKBDJJ5QF4 |42547|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5287-J88FF-Kailh-Brown-50g-Tactile.jpg?v=1725483514&amp;width=1863" alt="Kailh Brown 50g Tactile MKBDJJ5QF4 |69741|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1813-Y19LU-Kailh-Brown-Switches-Plate-Mount-Tactile.png?v=1725483602&amp;width=228" alt="Kailh Brown Switch MKBDJJ5QF4 |1813|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3527_63adfc0908679_Kailh-Brown-Light-Pipe-Switches-Plate-Mount-Tactile.jpg?v=1725483602&amp;width=640" alt="Kailh Brown Switch MKBDJJ5QF4 |3527|" />
+        </images>
+    </product>
+    <product>
+        <id>9471839076652</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>5.0</rating>
+        <rating_count>3</rating_count>
+        <title>Cherry MX Black Clear Top Nixie 63.5g Linear PCB Mount Switch ( MX1A-61NW )</title>
+        <price>€0,42</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>Re-release of the Nixie switch designed for the Nixdorf Computer AG in the 80s</item>
+                <item>63.5g actuation force</item>
+                <item>2.00mm pre-travel</item>
+                <item>4.00mm total travel</item>
+                <item>Top housing made of plastic polymer</item>
+                <item>Nylon bottom housing</item>
+                <item>Milky top and black bottom housing for a diffused RGB backlighting effect</item>
+                <item>Gold-plated stainless steel spring provides increased actuation force</item>
+                <item>MX Gold Crosspoint technology used for the switch contacts</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/21042-R1TH9-Cherry-MX-Clear-Top-Nixie.jpg?v=1719241300&amp;width=900" alt="Cherry MX Clear Top Nixie MKM0C0RE2Q |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/21042-E8FYV-Cherry-MX-Clear-Top-Nixie.jpg?v=1719241300&amp;width=900" alt="Cherry MX Clear Top Nixie MKM0C0RE2Q |65936|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/21042-U57C2-Cherry-MX-Clear-Top-Nixie.jpg?v=1719241300&amp;width=900" alt="Cherry MX Clear Top Nixie MKM0C0RE2Q |65937|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/21042-G5WQI-Cherry-MX-Clear-Top-Nixie.jpg?v=1719241300&amp;width=900" alt="Cherry MX Clear Top Nixie MKM0C0RE2Q |65940|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/21042-WLSIG-Cherry-MX-Clear-Top-Nixie.jpg?v=1719241300&amp;width=900" alt="Cherry MX Clear Top Nixie MKM0C0RE2Q |65939|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/21042-SE81N-Cherry-MX-Clear-Top-Nixie.jpg?v=1719241300&amp;width=1500" alt="Cherry MX Clear Top Nixie MKM0C0RE2Q |65938|" />
+        </images>
+    </product>
+    <product>
+        <id>10100572160300</id>
+        <type>Keyboard Switches</type>
+        <vendor>Keygeek</vendor>
+        <available>true</available>
+        <title>Keygeek Rye 36g Linear PCB Mount Switch</title>
+        <price>€0,31</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>36g actuation force</item>
+                <item>45g bottom out force</item>
+                <item>2.0mm pretravel</item>
+                <item>3.6mm total travel</item>
+                <item>L4 (Modified POM) stem</item>
+                <item>Modified PA12 top housing</item>
+                <item>Modified PA6 bottom housing</item>
+                <item>22mm spring</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/26158-RHFI1-Evoworks-Rye-36g-Linear-PCB-Mount-Switch.jpg?v=1759260248&amp;width=875" alt="Keygeek Rye 36g Linear PCB Mount Switch MK8GJX85W4 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/26158-RHFI1-Evoworks-Rye-36g-Linear-PCB-Mount-Switch.jpg?v=1759260248&amp;width=875" alt="Keygeek Rye 36g Linear PCB Mount Switch MK8GJX85W4 |0|" />
+        </images>
+    </product>
+    <product>
+        <id>9213827023148</id>
+        <type>Keyboard Switches</type>
+        <vendor>Kailh</vendor>
+        <available>true</available>
+        <rating>4.6</rating>
+        <rating_count>3</rating_count>
+        <title>Kailh Blue 50g Clicky Switch</title>
+        <price>€0,11</price>
+        <options>
+            <option_group name="LED Support:">
+                <option id="3331595731244">RGB LED</option>
+                <option id="3331595764012">Single LED</option>
+                <option id="3331595796780">Light Pipe</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>50±15gf actuation force</item>
+                <item>2.0mm pre-travel</item>
+                <item>4.00mm total travel</item>
+                <item>Nylon top and bottom housing</item>
+                <item>POM stem</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1814-E58KJ-Kailh-Blue-Switches-Plate-Mount-Tactile-Click.jpg?v=1755717832&amp;width=1600" alt="Kailh Blue 50g Clicky MK6SZY4II2 |1814|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5303-LXF6A-Kailh-Blue-Switch.png?v=1755717832&amp;width=200" alt="Kailh Blue 50g Clicky MK6SZY4II2 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5303-NIISQ-Kailh-Blue-Switch.png?v=1755717832&amp;width=200" alt="Kailh Blue 50g Clicky MK6SZY4II2 |42551|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5303-P6K6Q-Kailh-Blue-Switch.png?v=1755717832&amp;width=200" alt="Kailh Blue 50g Clicky MK6SZY4II2 |42552|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5303-GYBYE-Kailh-Blue-Switch.png?v=1755717832&amp;width=200" alt="Kailh Blue 50g Clicky MK6SZY4II2 |42553|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5303-R7K1T-Kailh-Blue-50g-Clicky.jpg?v=1755717834&amp;width=1501" alt="Kailh Blue 50g Clicky MK6SZY4II2 |69743|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3526-762RS-Kailh-Blue-50g-Clicky-Light-Pipe.jpg?v=1755717834&amp;width=2000" alt="Kailh Blue 50g Clicky MK6SZY4II2 |3526|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3526-72XPL-Kailh-Blue-50g-Clicky-Light-Pipe.jpg?v=1755717834&amp;width=2000" alt="Kailh Blue 50g Clicky MK6SZY4II2 |76574|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3526-56VCJ-Kailh-Blue-50g-Clicky-Light-Pipe.jpg?v=1755717832&amp;width=800" alt="Kailh Blue 50g Clicky MK6SZY4II2 |76575|" />
+        </images>
+    </product>
+    <product>
+        <id>8930839658796</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>4.8</rating>
+        <rating_count>5</rating_count>
+        <title>Cherry MX Ergo Clear 55g Tactile Switch</title>
+        <price>€0,64</price>
+        <options>
+            <option_group name="LED Support:">
+                <option id="2582391488812">SMD</option>
+                <option id="2582391521580">Single LED</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>55g actuation force</item>
+                <item>2.00mm pretravel</item>
+                <item>4.00mm total travel</item>
+                <item>POM stem</item>
+                <item>Nylon top and bottom housing</item>
+                <item>Stainless steel spring</item>
+                <item>Factory lubed</item>
+                <item>Uses same mold as the popular Cherry MX2A Purple switches</item>
+            </list>
+            <div id="0">Created as a modification by enthusiasts, the CHERRY MX Ergo Clear is a particularly tactile switch with no click. The community switch combines the tactile feedback of the MX Clear with a comparatively light actuation as well as a reduced bottom-out force and offers a smoother typing feel and more relaxed typing or gaming even over many hours.*For best results, use stem trimmer before installation. MK is not responsible for cracked keycaps resulting from the use of this switch.</div>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16039_642e1c63b758a_Cherry-MX-Ergo-Clear-RGB-Switches-PCB-Mount-Tactile-Lubed.png?v=1710651903&amp;width=368" alt="Cherry MX Ergo Clear 40g Tactile Switch MKF03J1QWO |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16039_642e1c63d29ca_Cherry-MX-Ergo-Clear-RGB-Switches-PCB-Mount-Tactile-Lubed.png?v=1710651906&amp;width=678" alt="Cherry MX Ergo Clear 40g Tactile Switch MKF03J1QWO |35423|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16039_642e1c63edf46_Cherry-MX-Ergo-Clear-RGB-Switches-PCB-Mount-Tactile-Lubed.png?v=1710651905&amp;width=1182" alt="Cherry MX Ergo Clear 40g Tactile Switch MKF03J1QWO |35424|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16040_642e1c64be877_Cherry-MX-Ergo-Clear-Switches-PCB-Mount-Tactile-Lubed.jpg?v=1710651903&amp;width=368" alt="Cherry MX Ergo Clear 40g Tactile Switch MKF03J1QWO |16040|" />
+        </images>
+    </product>
+    <product>
+        <id>9040980607276</id>
+        <type>Keyboard Switches</type>
+        <vendor>TTC</vendor>
+        <available>true</available>
+        <rating>5.0</rating>
+        <rating_count>7</rating_count>
+        <title>TTC Bluish White Silent V2 42g Tactile Plate Mount Lubed Switch</title>
+        <price>€0,66</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>42g actuation force</item>
+                <item>Factory lubed</item>
+                <item>2.00mm pre-travel</item>
+                <item>3.50mm total travel</item>
+                <item>Polycarbonate top housing</item>
+                <item>Nylon bottom housing</item>
+                <item>POM partial-BOX style stem</item>
+                <item>Stainless steel spring</item>
+                <item>50g bottom-out force</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/6262_629017b2a7aa4_TTC-Silent-Bluish-White-Switch-Tactile-Plate-Mount.jpg?v=1708712372&amp;width=834" alt="TTC Silent Bluish White 42g Tactile Plate Mount Lubed Switch MKOCVPN1ZJ |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/6262_629017b2a7aa4_TTC-Silent-Bluish-White-Switch-Tactile-Plate-Mount.jpg?v=1708712372&amp;width=834" alt="TTC Silent Bluish White 42g Tactile Plate Mount Lubed Switch MKOCVPN1ZJ |0|" />
+        </images>
+    </product>
+    <product>
+        <id>9611659084076</id>
+        <type>Keyboard Switches</type>
+        <vendor>Gateron</vendor>
+        <available>true</available>
+        <rating>5.0</rating>
+        <rating_count>2</rating_count>
+        <title>Gateron Milky Yellow 50g Linear Switch</title>
+        <price>€0,22</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="4139273191724">Plate</option>
+                <option id="4139273224492">PCB</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>50±10gf actuation force</item>
+                <item>2.00±0.6mm pre-travel</item>
+                <item>4.00±0.6mm total travel</item>
+                <item>POM stem</item>
+                <item>Proprietary Milky nylon top and bottom housing</item>
+                <item>Stainless steel spring</item>
+                <item>Lightly factory lubed</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1436-PU3G2-Gateron-Milky-Yellow-Switches-Plate-Mount-Linear.png?v=1724860335&amp;width=520" alt="Gateron Milky Yellow 50g Linear MK5K0TMYXO |1436|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/22873-N9TRM-Gateron-Milky-Yellow-50g-Linear.jpg?v=1724860334&amp;width=520" alt="Gateron Milky Yellow 50g Linear MK5K0TMYXO |0|" />
+        </images>
+    </product>
+    <product>
+        <id>9040683794732</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>4.7</rating>
+        <rating_count>10</rating_count>
+        <title>Cherry MX2A Brown 55g Tactile Switch</title>
+        <price>€0,45</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2870974480684">PCB</option>
+                <option id="2870974513452">Plate</option>
+            </option_group>
+            <option_group name="LED Support:">
+                <option id="2870974415148">SMD</option>
+                <option id="2870974447916">RGB LED</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>55g actuation force</item>
+                <item>4.00mm total travel</item>
+                <item>2.00mm pretravel</item>
+                <item>Stem reinforced with ribs to reduce wobble</item>
+                <item>Gold cross point contact</item>
+                <item>Diamond polished stem and spring guidance</item>
+                <item>High-precision ring lubrication applied to bottom housing</item>
+                <item>Updated, barrel-shaped, stainless steel spring</item>
+            </list>
+            <div id="0">Immerse yourself in the next chapter of mechanical brilliance with the MX2A. Harness the power of the industry-leading Gold Cross Point Contact System, ensuring every keystroke is met with unrivaled precision. Delight in butter-smooth typing, enveloped by the harmony of optimized acoustics. This is more than just a switch; it's the pinnacle of MX performance.</div>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16990-8GPXP-Cherry-MX-20-Brown-Linear-Plate-Mount-Switches_85000047-73ac-4d81-a80f-5a5a625d9cb9.png?v=1708702318&amp;width=368" alt="Cherry MX2A Brown 55g Tactile MK59JX4LS9 |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18616-IYMAY-Cherry-MX2A-Brown-55g-Tactile.png?v=1708702317&amp;width=678" alt="Cherry MX2A Brown 55g Tactile MK59JX4LS9 |61679|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18616-5VEB1-Cherry-MX2A-Brown-55g-Tactile.jpg?v=1708702319&amp;width=1737" alt="Cherry MX2A Brown 55g Tactile MK59JX4LS9 |61680|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/17027-US2QE-Cherry-MX-20-Brown-RGB-Tactile-PCB-Mount-Switches_f6688fe7-d228-4d77-a9a1-a67eb62cb308.png?v=1708702318&amp;width=368" alt="Cherry MX2A Brown 55g Tactile MK59JX4LS9 |17027|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/preview_images/hqdefault_ebc0e3a6-8398-4ea5-ba97-c0b83bf6896c.jpg?v=1709324952&amp;width=480" />
+        </images>
+    </product>
+    <product>
+        <id>8928353255724</id>
+        <type>Keyboard Switches</type>
+        <vendor>Greetech</vendor>
+        <available>true</available>
+        <rating>5.0</rating>
+        <rating_count>1</rating_count>
+        <title>Greetech Brown 50g Tactile Switch</title>
+        <price>€0,05</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2575687713068">Plate</option>
+                <option id="2575687745836">PCB</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>50g actuation force</item>
+                <item>2.0mm pretravel</item>
+                <item>4.0mm total travel</item>
+                <item>Plate mount switches have 2 pin holes for single LEDs and the PCB mount switches have 4 pin holes for RGB LEDs</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1358-IUFY2-Greetech-Brown-Switches-Plate-Mount-Tactile.jpg?v=1710648991&amp;width=765" alt="Greetech Brown Switch MKKNPU92SD |1358|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5300-H7ZG2-Greetech-Brown-Switch.png?v=1710648991&amp;width=520" alt="Greetech Brown Switch MKKNPU92SD |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1358_63adf563b24d8_Greetech-Brown-Switches-Plate-Mount-Tactile.jpg?v=1710648995&amp;width=2400" alt="Greetech Brown Switch MKKNPU92SD |33017|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1358_63adf563ce333_Greetech-Brown-Switches-Plate-Mount-Tactile.jpg?v=1710648994&amp;width=2400" alt="Greetech Brown Switch MKKNPU92SD |33018|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1358-TW4Q7-Greetech-Brown-Switches-Plate-Mount-Tactile.jpg?v=1710648992&amp;width=846" alt="Greetech Brown Switch MKKNPU92SD |36935|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1358-RYQR3-Greetech-Brown-Switches-Plate-Mount-Tactile.jpg?v=1710648997&amp;width=2266" alt="Greetech Brown Switch MKKNPU92SD |36936|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1359-5FLUP-Greetech-Brown-Switches-PCB-Mount-Tactile.jpg?v=1710648991&amp;width=741" alt="Greetech Brown Switch MKKNPU92SD |1359|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1359_63adf564ec13f_Greetech-Brown-Switches-PCB-Mount-Tactile.jpg?v=1710648996&amp;width=2400" alt="Greetech Brown Switch MKKNPU92SD |33019|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1359_63adf5651c0be_Greetech-Brown-Switches-PCB-Mount-Tactile.jpg?v=1710648993&amp;width=2400" alt="Greetech Brown Switch MKKNPU92SD |33020|" />
+        </images>
+    </product>
+    <product>
+        <id>10269674570028</id>
+        <type>Keyboard Switches</type>
+        <vendor>TTC</vendor>
+        <available>true</available>
+        <title>TTC x Pantheonkeys PT Black 43g Linear PCB Mount Switch</title>
+        <price>€0,36</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>43g actuation force</item>
+                <item>50g bottom out force</item>
+                <item>2.0mm pretravel</item>
+                <item>4.0mm total travel</item>
+                <item>POM stem</item>
+                <item>Modified nylon top and bottom housing</item>
+                <item>19mm spring</item>
+                <item>Light factory lube on stem legs</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27320-2ZEZ5-TTC-x-Pantheonkeys-PT-Black-43g-Linear-PCB-Mount-Switch.jpg?v=1775756890&amp;width=1417" alt="TTC x Pantheonkeys PT Black 43g Linear PCB Mount Switch MKDIW16SIP |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27320-ZL3TR-TTC-x-Pantheonkeys-PT-Black-43g-Linear-PCB-Mount-Switch.jpg?v=1775756890&amp;width=986" alt="TTC x Pantheonkeys PT Black 43g Linear PCB Mount Switch MKDIW16SIP |78856|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27320-2FRA1-TTC-x-Pantheonkeys-PT-Black-43g-Linear-PCB-Mount-Switch.jpg?v=1775756890&amp;width=986" alt="TTC x Pantheonkeys PT Black 43g Linear PCB Mount Switch MKDIW16SIP |78857|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27320-FLYK5-TTC-x-Pantheonkeys-PT-Black-43g-Linear-PCB-Mount-Switch.jpg?v=1775756890&amp;width=800" alt="TTC x Pantheonkeys PT Black 43g Linear PCB Mount Switch MKDIW16SIP |78858|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27320-J5RSA-TTC-x-Pantheonkeys-PT-Black-43g-Linear-PCB-Mount-Switch.jpg?v=1775756890&amp;width=2600" alt="TTC x Pantheonkeys PT Black 43g Linear PCB Mount Switch MKDIW16SIP |78859|" />
+        </images>
+    </product>
+    <product>
+        <id>9039493169452</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>4.5</rating>
+        <rating_count>6</rating_count>
+        <title>Cherry MX2A Speed Silver 45g Linear Switch</title>
+        <price>€0,56</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2867292733740">Plate</option>
+                <option id="2867292766508">PCB</option>
+            </option_group>
+            <option_group name="LED Support:">
+                <option id="2867292700972">RGB LED</option>
+                <option id="4148293501228">Single LED</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>45g actuation force</item>
+                <item>3.40mm total travel</item>
+                <item>1.20mm pretravel</item>
+                <item>Stem reinforced with ribs to reduce wobble</item>
+                <item>High-precision ring lubrication applied to bottom housing</item>
+                <item>Diamond polished stem and spring guidance</item>
+                <item>Gold cross point contact</item>
+                <item>Updated, barrel-shaped, stainless steel spring</item>
+            </list>
+            <div id="0">Immerse yourself in the next chapter of mechanical brilliance with the MX2A. Harness the power of the industry-leading Gold Cross Point Contact System, ensuring every keystroke is met with unrivaled precision. Delight in butter-smooth typing, enveloped by the harmony of optimized acoustics. This is more than just a switch; it's the pinnacle of MX performance.</div>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16999-6FIPX-Cherry-MX-20-Silver-RGB-Linear-Plate-Mount-Switches_0845ce81-adb2-431d-82a6-bd9359f82e60.png?v=1708699762&amp;width=368" alt="Cherry MX2A Speed Silver 45g Linear MK3UHLODSB |16999|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/16993-SYV2M-Cherry-MX-20-Silver-Linear-Plate-Mount-Switches_00d9d01e-6170-467d-a005-c02b8ac461a7.png?v=1708699760&amp;width=368" alt="Cherry MX2A Speed Silver 45g Linear MK3UHLODSB |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18613-LZDNS-Cherry-MX2A-Speed-Silver-45g-Linear.png?v=1708699761&amp;width=678" alt="Cherry MX2A Speed Silver 45g Linear MK3UHLODSB |61667|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/18613-RMTV8-Cherry-MX2A-Speed-Silver-45g-Linear.jpg?v=1708699761&amp;width=1730" alt="Cherry MX2A Speed Silver 45g Linear MK3UHLODSB |61668|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/preview_images/hqdefault_19937482-304b-481e-9c78-1383657bd2d7.jpg?v=1709325028&amp;width=480" />
+        </images>
+    </product>
+    <product>
+        <id>10236945596716</id>
+        <type>Keyboard Switches</type>
+        <vendor>Keygeek</vendor>
+        <available>true</available>
+        <title>Keygeek Y3X Linear PCB Mount Switch</title>
+        <price>€0,31</price>
+        <options>
+            <option_group name="Actuation Force:">
+                <option id="7404083282220">32</option>
+                <option id="7404083314988">40</option>
+                <option id="7404083347756">48</option>
+                <option id="7404083380524">53</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>4 actuation forces to choose from: 32g, 40g, 48, and 53g</item>
+                <item>32g actuation force has 37g bottom out force</item>
+                <item>40g actuation force has 45g bottom out force</item>
+                <item>48g actuation force has 53g bottom out force</item>
+                <item>53g actuation force has 63.5g bottom out force</item>
+                <item>2.0mm pretravel</item>
+                <item>3.8mm total travel</item>
+                <item>M5 POM stem with spherical stem tip</item>
+                <item>PA66 nylon top and bottom housing</item>
+                <item>KOS single-stage extended spring</item>
+                <item>Factory lubed</item>
+                <item>Spherical bottom housing contact point</item>
+                <item>Designed by MZ Studio</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27113-YUDJ2-Keygeek-Y3X-Linear-Switch.jpg?v=1770992747&amp;width=1200" alt="Keygeek Y3X Linear * PCB Mount Switch MK8UENJ2TR |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27113-2UU6U-Keygeek-Y3X-Linear-Switch.jpg?v=1770992747&amp;width=1200" alt="Keygeek Y3X Linear * PCB Mount Switch MK8UENJ2TR |78407|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27113-G5UZD-Keygeek-Y3X-Linear-Switch.jpg?v=1770992747&amp;width=1200" alt="Keygeek Y3X Linear * PCB Mount Switch MK8UENJ2TR |78408|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27113-K1JRB-Keygeek-Y3X-Linear-Switch.jpg?v=1770992747&amp;width=1200" alt="Keygeek Y3X Linear * PCB Mount Switch MK8UENJ2TR |78409|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27113-T6LX9-Keygeek-Y3X-Linear-Switch.jpg?v=1770992747&amp;width=1125" alt="Keygeek Y3X Linear * PCB Mount Switch MK8UENJ2TR |78410|" />
+        </images>
+    </product>
+    <product>
+        <id>8928161268012</id>
+        <type>Keyboard Switches</type>
+        <vendor>Kailh</vendor>
+        <available>true</available>
+        <rating>5.0</rating>
+        <rating_count>1</rating_count>
+        <title>Kailh Red 50g Linear Switch</title>
+        <price>€0,06</price>
+        <options>
+            <option_group name="LED Support:">
+                <option id="2574914912556">SMD</option>
+                <option id="2574914945324">Single LED</option>
+                <option id="2574914978092">RGB LED</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>50g actuation force</item>
+                <item>1.90mm pretravel</item>
+                <item>4.00mm total travel</item>
+                <item>Nylon top and bottom housing</item>
+                <item>Stainless steel spring</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5288-8BTHX-Kailh-Red-Switch.png?v=1770154781&amp;width=200" alt="Kailh Red 50g Linear MKDSPKJY0K |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5288-6PT11-Kailh-Red-Switch.png?v=1770154781&amp;width=200" alt="Kailh Red 50g Linear MKDSPKJY0K |42548|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5288-Z9364-Kailh-Red-Switch.png?v=1770154781&amp;width=200" alt="Kailh Red 50g Linear MKDSPKJY0K |42549|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5288-SCRSC-Kailh-Red-Switch.png?v=1770154781&amp;width=200" alt="Kailh Red 50g Linear MKDSPKJY0K |42550|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/5288-W2TKD-Kailh-Red-50g-Linear.jpg?v=1770154781&amp;width=2097" alt="Kailh Red 50g Linear MKDSPKJY0K |69742|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/1812-UJWBA-Kailh-Red-Switches-Plate-Mount-Linear.jpg?v=1770154781&amp;width=1600" alt="Kailh Red 50g Linear MKDSPKJY0K |1812|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3525-6KX7L-Kailh-Red-50g-Linear-RGB-LED.jpg?v=1770154781&amp;width=917" alt="Kailh Red 50g Linear MKDSPKJY0K |3525|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3525-16TEA-Kailh-Red-50g-Linear-RGB-LED.jpg?v=1770154782&amp;width=2000" alt="Kailh Red 50g Linear MKDSPKJY0K |78253|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3525-8SZ4E-Kailh-Red-50g-Linear-RGB-LED.jpg?v=1770154781&amp;width=2000" alt="Kailh Red 50g Linear MKDSPKJY0K |78254|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/3525-1YKYL-Kailh-Red-50g-Linear-RGB-LED.jpg?v=1770154781&amp;width=1920" alt="Kailh Red 50g Linear MKDSPKJY0K |78255|" />
+        </images>
+    </product>
+    <product>
+        <id>9942647341356</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>5.0</rating>
+        <rating_count>1</rating_count>
+        <title>Cherry Northern Light Silent 45g Linear PCB Mount RGB Switch ( MX2A-8C7D )</title>
+        <price>€0,54</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>45g actuation force</item>
+                <item>100g bottom out force</item>
+                <item>1.6mm pretravel</item>
+                <item>3.7mm total travel</item>
+                <item>Exclusive plastic polymer stem with integrated noise reduction technology</item>
+                <item>Plastic polymer top housing</item>
+                <item>Plastic polymer and glass fiber bottom housing</item>
+                <item>Extra polished top housing</item>
+                <item>Improved factory lubing</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/25177-CSLBQ-Cherry-Northern-Light-Silent-45g-Linear-PCB-Mount-RGB-Switch.jpg?v=1745000466&amp;width=1280" alt="Cherry Northern Light Silent 45g Linear PCB Mount RGB Switch ( MX2A-8C7D ) MKHLNRYX8G |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/25177-B3PRQ-Cherry-Northern-Light-Silent-45g-Linear-PCB-Mount-RGB-Switch.jpg?v=1745000466&amp;width=1280" alt="Cherry Northern Light Silent 45g Linear PCB Mount RGB Switch ( MX2A-8C7D ) MKHLNRYX8G |75357|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/25177-RIQK6-Cherry-Northern-Light-Silent-45g-Linear-PCB-Mount-RGB-Switch.jpg?v=1745000466&amp;width=1280" alt="Cherry Northern Light Silent 45g Linear PCB Mount RGB Switch ( MX2A-8C7D ) MKHLNRYX8G |75358|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/25177-CVGPP-Cherry-Northern-Light-Silent-45g-Linear-PCB-Mount-RGB-Switch.jpg?v=1745000467&amp;width=1280" alt="Cherry Northern Light Silent 45g Linear PCB Mount RGB Switch ( MX2A-8C7D ) MKHLNRYX8G |75359|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/25177-3R9QT-Cherry-Northern-Light-Silent-45g-Linear-PCB-Mount-RGB-Switch.jpg?v=1745000466&amp;width=1280" alt="Cherry Northern Light Silent 45g Linear PCB Mount RGB Switch ( MX2A-8C7D ) MKHLNRYX8G |75360|" />
+        </images>
+    </product>
+    <product>
+        <id>10283554734380</id>
+        <type>Keyboard Switches</type>
+        <vendor>WingTree</vendor>
+        <available>true</available>
+        <title>WingTree x Lichicx Pink Pink 35g Silent Linear PCB Mount Switch</title>
+        <price>€0,42</price>
+        <options />
+        <description>
+            <list id="0">
+                <item>35g actuation force</item>
+                <item>45g bottom out force</item>
+                <item>2.0mm pretravel</item>
+                <item>3.8mm total travel</item>
+                <item>POM stem with silicone silencer</item>
+                <item>PC top housing</item>
+                <item>Modified PA66 bottom housing</item>
+                <item>20mm spring</item>
+                <item>Factory lubed</item>
+                <item>Made with official Lichicx molds</item>
+            </list>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27487-2V9C7-WingTree-Pink-Pink-35g-Silent-Linear-PCB-Mount-Switch.jpg?v=1777658886&amp;width=1200" alt="WingTree Pink Pink 35g Silent Linear PCB Mount Switch MK2POJ468N |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27487-KZ6CQ-WingTree-Pink-Pink-35g-Silent-Linear-PCB-Mount-Switch.jpg?v=1777658886&amp;width=1200" alt="WingTree Pink Pink 35g Silent Linear PCB Mount Switch MK2POJ468N |79211|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27487-G1GP2-WingTree-Pink-Pink-35g-Silent-Linear-PCB-Mount-Switch.jpg?v=1777658886&amp;width=1200" alt="WingTree Pink Pink 35g Silent Linear PCB Mount Switch MK2POJ468N |79212|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27487-L5BCF-WingTree-Pink-Pink-35g-Silent-Linear-PCB-Mount-Switch.jpg?v=1777658886&amp;width=1200" alt="WingTree Pink Pink 35g Silent Linear PCB Mount Switch MK2POJ468N |79213|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/27487-3ZK8Q-WingTree-Pink-Pink-35g-Silent-Linear-PCB-Mount-Switch.jpg?v=1777658886&amp;width=1200" alt="WingTree Pink Pink 35g Silent Linear PCB Mount Switch MK2POJ468N |79214|" />
+        </images>
+    </product>
+    <product>
+        <id>8930628567340</id>
+        <type>Keyboard Switches</type>
+        <vendor>Cherry</vendor>
+        <available>true</available>
+        <rating>4.8</rating>
+        <rating_count>5</rating_count>
+        <title>Cherry MX Green 80g Clicky Switch</title>
+        <price>€0,45</price>
+        <options>
+            <option_group name="Mount Type:">
+                <option id="2581834432812">PCB</option>
+                <option id="2581834465580">Plate</option>
+            </option_group>
+        </options>
+        <description>
+            <list id="0">
+                <item>80g actuation force</item>
+                <item>2.20mm pretravel</item>
+                <item>4.00mm total travel</item>
+                <item>POM stem</item>
+                <item>Nylon top and bottom housing</item>
+                <item>Stainless steel spring</item>
+            </list>
+            <div id="0">Cherry MX Green switches are the best cherry switch for typing. The tactile bump can easily be felt, and the resistance is similar to your average keyboard. Although many people find them just fine for gaming, some don't like the fact that the release point is above the actuation point. This can cause some trouble with double-tapping. This is usually the case with someone who has experienced other mechanical switches before hand. As a note: this switch actually has a peak force of 105g, it is 80g at the point of actuation. This is due to the design of the Cherry switch itself.</div>
+        </description>
+        <images>
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/4955-GP9IS-Cherry-MX-Green-Switch.png?v=1707269224&amp;width=368" alt="Cherry MX Green 80g Clicky Switch MKF4U24PEV |0|" />
+            <image src="https://mechanicalkeyboards.com/cdn/shop/files/4955-B7RTX-Cherry-MX-Green-Switch.jpg?v=1707269224&amp;width=1181" alt="Cherry MX Green 80g Clicky Switch MKF4U24PEV |36666|" />
+        </images>
+    </product>
+</products>

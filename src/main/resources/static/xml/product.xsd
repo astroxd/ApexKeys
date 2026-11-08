@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name='products'>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name='product' maxOccurs='unbounded'>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name='id' type='xs:string'/>
+                            <xs:element name='type' type='xs:string'/>
+                            <xs:element name='vendor' type='xs:string'/>
+                            <xs:element name='available' type='xs:boolean'/>
+                            <xs:element name='rating' type='xs:string' minOccurs='0'/>
+                            <xs:element name='rating_count' type='xs:integer' minOccurs='0'/>
+                            <xs:element name='title' type='xs:string'/>
+                            <xs:element name='price' type='xs:string'/>
+                            <xs:element ref='options'/>
+                            <xs:element ref='description'/>
+                            <xs:element ref='images'/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name='options'>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name='option_group' minOccurs='0' maxOccurs='unbounded'>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name='option' maxOccurs='unbounded'>
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base='xs:string'>
+                                            <xs:attribute name='id' type='xs:string' use='required'/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name='name' type='xs:string' use='required'/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name='description'>
+        <xs:complexType>
+            <xs:choice maxOccurs='unbounded'>
+                <xs:element name='list'>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name='item' type='xs:string' maxOccurs='unbounded'/>
+                        </xs:sequence>
+                        <xs:attribute name='id' type='xs:integer' use='required'/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name='div'>
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base='xs:string'>
+                                <xs:attribute name='id' type='xs:string' use='required'/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name='images'>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name='image' minOccurs='0' maxOccurs='unbounded'>
+                    <xs:complexType>
+                        <xs:attribute name='src' type='xs:string'/>
+                        <xs:attribute name='alt' type='xs:string' use='optional'/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
