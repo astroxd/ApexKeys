@@ -1,21 +1,39 @@
 import { addToCart } from "./cart.js";
 
-const keyboardSizeCheckElements = [
-  "Full-size Keyboards",
-  "75% Keyboards",
-  "TKL Keyboards",
+const ProductTypes = ["keyboards", "keycaps", "switches"];
+const ProductSortOptions = [
+  {
+    value: "A-Z",
+    label: "Alphabetically: A-Z",
+  },
+  {
+    value: "Z-A",
+    label: "Alphabetically: Z-A",
+  },
+  {
+    value: "price-asc",
+    label: "Price: Low to High",
+  },
+  {
+    value: "price-desc",
+    label: "Price: High to Low",
+  },
 ];
 
-// const ProductTypes = Object.freeze({
-//   KEYBOARDS: "keyboards",
-//   KEYCAPS: "keycaps",
-//   SWITCHES: "switches",
-// });
-
-const ProductTypes = ["keyboards", "keycaps", "switches"];
+let products = [];
+let query = "";
+let sort = ProductSortOptions[0].value;
 
 document.addEventListener("DOMContentLoaded", () => {
   loadData();
+  buildPage();
+});
+
+const buildPage = () => {
+  const navbarSearchForm = document.getElementById("navbar-search-form");
+  navbarSearchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
 
   let timeout;
   const searchBar = document.getElementById("search-bar");
@@ -25,8 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timeout = setTimeout(filterProducts, 500);
   });
 
-  const productFilter =
-    document.getElementById("filterProducts").firstElementChild;
+  const productFilter = document.getElementById("filterProducts");
 
   ProductTypes.forEach((pType, index) => {
     const inputHtml = `<div class="form-check mb-2">
@@ -47,33 +64,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const options = productFilter.querySelectorAll("input") ?? [];
-
   for (const option of options) {
     option.addEventListener("change", (e) => {
       if (e.target.checked) {
-        console.log(e.target.value);
-        // filterProducts();
         loadData(e.target.value);
       }
     });
   }
-});
 
-let products = [];
-let query = "";
+  const sortSelect = document.getElementById("sort-select");
+  ProductSortOptions.forEach((sortOption, index) => {
+    const newOption = document.createElement("option");
+    newOption.setAttribute("value", sortOption.value);
+    if (index === 0) newOption.selected = true;
+    newOption.text = sortOption.label;
+    sortSelect.appendChild(newOption);
+  });
+
+  sortSelect.addEventListener("input", (e) => {
+    sort = e.target.value;
+    filterProducts();
+  });
+
+  loadInfoModal();
+};
 
 const loadData = async (category = "keyboards") => {
-  const apiURL = "https://dbservice.vercel.app/products";
-
-  // const response = await fetch(apiURL);
-
-  // if (!response.ok) {
-  //   console.log(`Response status: ${response.status}`);
-  //   return;
-  // }
-
-  // const data = await response.json();
-  // console.log();
   if (!ProductTypes.includes(category)) return;
 
   const xmlPath = `../xml/${category}.xml`;
@@ -97,14 +113,17 @@ const parseXML = (xml) => {
     .map((_, p) => {
       const $p = $(p);
       let product = {
-        id: $p.find("> id").text(),
-        type: $p.find("> type").text(),
-        vendor: $p.find("> vendor").text(),
+        id: parseInt($p.find("> id").text()),
+        type: $p.find("> type").text() ?? "",
+        vendor: $p.find("> vendor").text() ?? "",
         available: $p.find("> available").text() === "true",
-        rating: parseFloat($p.find("> rating").text()) || 0,
-        ratingCount: parseInt($p.find("> rating_count").text()) || 0,
-        title: $p.find("> title").text(),
-        price: $p.find("> price").text(),
+        rating: parseFloat($p.find("> rating").text()) ?? 0,
+        ratingCount: parseInt($p.find("> rating_count").text()) ?? 0,
+        title: $p.find("> title").text() ?? "",
+        price:
+          parseFloat(
+            $p.find("> price").text().slice(1).replace(",", ".") ?? 0,
+          ) ?? 0,
         description: [],
         images: [],
       };
@@ -147,41 +166,53 @@ const parseXML = (xml) => {
       return product;
     })
     .get();
-
-  console.log(products);
 };
 
 const filterProducts = () => {
+  const lowerQuery = query.toLowerCase();
   const filteredProducts = products
     .filter((p) => {
-      return (
-        p.title.toLowerCase().includes(query.toLowerCase()) ||
-        p.vendor.includes(query.toLowerCase()) ||
-        p.description.some((d) => {
-          if (d.type === "div") {
-            return d.content.toLowerCase().includes(query.toLowerCase());
-          } else if (d.type === "list") {
-            return d.items.some((item) =>
-              item.toLowerCase().includes(query.toLowerCase()),
-            );
-          }
-        })
-      );
+      const titleMatch = p.title.toLowerCase().includes(lowerQuery);
+      const vendorMatch = p.vendor.toLowerCase().includes(lowerQuery);
+      const descriptionMatch = p.description.some((d) => {
+        if (d.type === "div") {
+          return d.content.toLowerCase().includes(lowerQuery);
+        } else if (d.type === "list") {
+          return d.items.some((item) =>
+            item.toLowerCase().includes(lowerQuery),
+          );
+        }
+        return false;
+      });
+
+      return titleMatch || vendorMatch || descriptionMatch;
     })
-    .toSorted();
+    .toSorted((a, b) => {
+      // localeCompare funziona con le lettere accentate (è, é, à)
+      switch (sort) {
+        case "A-Z":
+          return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        case "Z-A":
+          return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
+        case "price-asc":
+          return a.price - b.price;
+        case "price-desc":
+          return b.price - a.price;
+        default:
+          return 0;
+      }
+    });
 
   updateDOM(filteredProducts);
 };
 
 const updateDOM = (products = []) => {
-  console.log("UpdatedDOm");
   const row = document.getElementById("products");
-
   if (row) {
     row.innerHTML = "";
 
     if (products.length <= 0) {
-      const noFoundText = `<div>${query.length ? `No element found for: "${query}"` : "No elements"}</div>`;
+      const noFoundText = `<div class="col text-center text-muted">${query.length ? `No element found for: "${query}"` : "No elements"}</div>`;
       row.innerHTML = noFoundText;
       return;
     }
@@ -196,23 +227,19 @@ const updateDOM = (products = []) => {
               />
               <div class="card-body">
                 <h5 class="card-title mb-0 ellipsis">${product.title}</h5>
-                <p class="card-text text-accent mb-0 small">${product.vendor}</p>
+                <p class="card-text text-accent fw-semibold mb-0 small">${product.vendor}</p>
                 <p class="card-text text-muted mb-0 card-description ellipsis">
                   ${product.description.find((d) => d.type === "div")?.content ?? product.description.find((d) => d.type === "list").items}
                 </p>
-                <div class="card-rating-container">
-                  <re-icon icon="star-filled"></re-icon>
-                  <re-icon icon="star-filled"></re-icon>
-                  <re-icon icon="star"></re-icon>
-                  <re-icon icon="star"></re-icon>
-                  <re-icon icon="star"></re-icon>
-                </div>
-                <span class="text-accent card-price">${product.price}</span>
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="text-accent card-price">$${product.price}</span>
+                  <span class="badge bg-primary" style="font-size: 0.6em;">${product.available ? "" : "Sold out"}</span>
+                  </div>
                 <div
-                  class="d-flex align-items-center justify-content-between card-buttons"
+                  class="d-flex flex-row flex-lg-column gap-2 align-items-center justify-content-between card-buttons"
                 >
                   <button
-                    class="btn btn-primary btn-sm"
+                    class="btn btn-primary w-100"
                     data-bs-toggle="modal"
                     data-bs-target="#cartModal1"
                     data-id=${product.id}
@@ -221,9 +248,9 @@ const updateDOM = (products = []) => {
                     Add To Cart
                   </button>
                   <button
-                    class="btn btn-outline-primary btn-sm"
-                    data-bs-toggle="modal"
-                    data-bs-target="#infoModal1"
+                    class="btn btn-outline-primary w-100"
+                    data-id=${product.id}
+                    id="info-btn"
                   >
                     More details
                   </button>
@@ -237,20 +264,158 @@ const updateDOM = (products = []) => {
     const addButtons = row.querySelectorAll("#add-to-cart-btn");
     addButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
-        const productId = e.currentTarget.dataset.id;
-        const productFound = products.find(
-          (p) => p.id.toString() === productId,
-        );
+        const productId = parseInt(e.currentTarget.dataset.id);
+        const productFound = products.find((p) => p.id === productId);
         if (productFound) {
-          const product = {
-            id: productFound.id,
-            title: productFound.title,
-            price: productFound.price,
-            image: productFound.images[0].src,
-          };
-          addToCart(product);
+          addToCart(getCartProduct(productFound));
+        }
+      });
+    });
+
+    const infoButtons = row.querySelectorAll("#info-btn");
+    infoButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const productId = parseInt(e.currentTarget.dataset.id);
+        const productFound = products.find((p) => p.id === productId);
+        if (productFound) {
+          buildInfoModal(productFound);
         }
       });
     });
   }
+};
+
+const loadInfoModal = () => {
+  const $infoModal = $("#info-modal")[0];
+  const infoModal = document.getElementById("info-modal");
+  infoModal.addEventListener("click", (e) => {
+    if (e.target === infoModal) {
+      closeInfoModal();
+    }
+  });
+  $infoModal.on("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeInfoModal();
+    }
+  });
+
+  const closeButtons = infoModal.querySelectorAll("[data-bs-dismiss='modal']");
+  closeButtons.forEach((closeBtn) => {
+    closeBtn.addEventListener("click", (e) => {
+      closeInfoModal();
+    });
+  });
+
+  const quantityMinusRef = infoModal.querySelector("#quantity-minus");
+  const quantityPlusRef = infoModal.querySelector("#quantity-plus");
+  const quantityInputRef = infoModal.querySelector("#quantity");
+  quantityMinusRef.addEventListener("click", (e) => {
+    quantityMinusRef.disabled =
+      parseInt(quantityInputRef.value) <= 1 ? true : false;
+    if (quantityInputRef.value <= 1) return;
+    quantityInputRef.value -= 1;
+  });
+
+  quantityPlusRef.addEventListener("click", (e) => {
+    quantityInputRef.value = parseInt(quantityInputRef.value) + 1;
+    quantityMinusRef.disabled =
+      parseInt(quantityInputRef.value) <= 1 ? true : false;
+  });
+  quantityInputRef.addEventListener("change", (e) => {
+    const newQuantity = parseInt(e.currentTarget.value);
+    quantityInputRef.value = newQuantity > 0 ? newQuantity : 1;
+    quantityMinusRef.disabled =
+      parseInt(quantityInputRef.value) <= 1 ? true : false;
+  });
+};
+
+const buildInfoModal = (product) => {
+  const infoModal = document.getElementById("info-modal");
+
+  const modalTitle = infoModal.querySelector(".modal-title");
+  modalTitle.textContent = product.title;
+
+  const modalImg = infoModal.querySelector("img");
+  modalImg.src = product.images[0].src;
+  modalImg.alt = product.images[0].alt ?? product.title;
+
+  const modalDescription = infoModal
+    .querySelector(".modal-description")
+    .querySelector("div");
+  modalDescription.innerHTML = "";
+
+  product.description.forEach((desc) => {
+    if (desc.type === "div") {
+      const p = document.createElement("p");
+      p.classList.add("text-muted", "small", "mb-3");
+      p.innerHTML = desc.content;
+      modalDescription.appendChild(p);
+    } else if (desc.type === "list") {
+      const ul = document.createElement("ul");
+      ul.classList.add("text-muted", "small", "ps-3", "mb-3");
+      desc.items.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      modalDescription.appendChild(ul);
+    }
+  });
+
+  const modalPrice = infoModal.querySelector("#price");
+  modalPrice.textContent = `$${product.price}`;
+
+  const addToCartButton = infoModal.querySelector("#info-modal-add-to-cart");
+  const quantityInputRef = infoModal.querySelector("#quantity");
+  addToCartButton.addEventListener("click", (e) => {
+    addToCart(getCartProduct(product), quantityInputRef.value ?? 1);
+  });
+
+  openInfoModal();
+};
+
+// TODO use jquery
+const openInfoModal = () => {
+  const infoModal = document.getElementById("info-modal");
+  infoModal.style.display = "block";
+  infoModal.classList.add("show");
+  infoModal.setAttribute("aria-hidden", "false");
+  infoModal.setAttribute("role", "dialog");
+  infoModal.focus();
+
+  const body = document.querySelector("body");
+  body.classList.add("modal-open");
+  body.style.overflow = "hidden";
+  body.style.paddingRight = "0px";
+
+  const backdropDiv = document.createElement("div");
+  backdropDiv.classList.add("modal-backdrop", "fade", "show");
+  body.appendChild(backdropDiv);
+};
+
+const closeInfoModal = () => {
+  const infoModal = document.getElementById("info-modal");
+  infoModal.style.display = "none";
+  infoModal.classList.remove("show");
+  infoModal.setAttribute("aria-hidden", "true");
+  infoModal.removeAttribute("role");
+  infoModal.blur();
+
+  const body = document.querySelector("body");
+  body.classList.remove("modal-open");
+  body.style.removeProperty("overflow");
+  body.style.removeProperty("padding-right");
+
+  const backdropDiv = document.querySelector(".modal-backdrop");
+  if (backdropDiv) backdropDiv.remove();
+};
+
+const getCartProduct = (product) => {
+  const cartProduct = {
+    id: product.id,
+    title: product.title,
+    price: product.price,
+    image: product.images[0],
+  };
+  return cartProduct;
 };

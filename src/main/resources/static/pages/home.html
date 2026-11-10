@@ -33,7 +33,7 @@
         <div class="row align-items-center">
           <div class="col-auto">
             <a href="#" class="logo">
-              <img src="" alt="" />
+              <img src="../assets/logo.png" alt="" />
               <span class="logo-text"
                 >Apex<span class="text-accent">Keys</span>
               </span>
@@ -41,7 +41,7 @@
           </div>
           <div class="col">
             <div class="search">
-              <form action="" class="search-form">
+              <form action="" class="search-form" id="navbar-search-form">
                 <button type="submit">
                   <re-icon icon="search4"></re-icon>
                 </button>
@@ -56,7 +56,7 @@
           </div>
           <div class="col-auto">
             <div class="nav-right">
-              <div class="dropdown">
+              <!-- <div class="dropdown">
                 <a
                   href="#"
                   class="dropdown-toggle"
@@ -84,9 +84,15 @@
                     >
                   </li>
                 </ul>
-              </div>
+              </div> -->
               <div class="cart-link">
-                <a href="./cart.html" class="btn">🛒</a>
+                <a href="./cart.html" class="btn position-relative">
+                  <re-icon icon="cart-large5" class="fs-3">
+                  </re-icon>
+                  <span class="position-absolute badge bg-primary" id="cart-counter-badge">3
+                    <span class="visually-hidden">cart items</span>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
@@ -99,7 +105,7 @@
         <div class="row">
           <div class="col-lg-6">
             <h1 class="hero-title">
-              CRAFT THE ULTIMATE
+              CRAFT THE ULTIMATE <br/>
               <span class="text-accent">TYPING EXPERIENCE</span>
             </h1>
             <p class="hero-description text-muted">
@@ -129,6 +135,15 @@
     </section>
     <section class="products">
       <div class="container">
+        <div class="row mb-3">
+          <div class="d-flex justify-content-end">
+            <div class="d-flex align-items-center w-auto gap-2">
+              <span class="text-muted text-nowrap">Sort by:</span>
+              <select name="sort" id="sort-select" class="form-select form-select">
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-3">
             <aside>
@@ -163,13 +178,16 @@
 
                 <div class="offcanvas-body d-block">
                   <h5 class="mb-3 d-none d-lg-block">Filter Products</h5>
+                  <div class="ms-2" id="filterProducts">
+
+                  </div>
 
                   <!-- Macro-Filtri tramite Accordion Flush -->
-                  <div
+                  <!-- <div
                     class="accordion accordion-flush bg-transparent"
                     id="filtersAccordion"
                   >
-                    <!-- Macro-categoria: PRODUCTS -->
+
                     <div class="accordion-item bg-transparent border-secondary">
                       <h2 class="accordion-header">
                         <button
@@ -190,180 +208,11 @@
                         </div>
                       </div>
                     </div>
-                    <!-- Macro-categoria: KEYBOARDS
-                    <div class="accordion-item bg-transparent border-secondary">
-                      <h2 class="accordion-header">
-                        <button
-                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#filterKeyboards"
-                        >
-                          Keyboards
-                        </button>
-                      </h2>
-                      <div
-                        id="filterKeyboards"
-                        class="accordion-collapse collapse show"
-                        data-bs-parent="#filtersAccordion"
-                      >
-                        <div class="accordion-body pt-1 pb-3 text-muted">
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="Full-size Keyboards"
-                              value="Full-size Keyboards"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="Full-size Keyboards"
-                              >Full-size Keyboards</label
-                            >
-                          </div>
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="75% Keyboards"
-                              value="75% Keyboards"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="75% Keyboards"
-                              >75% Keyboards</label
-                            >
-                          </div>
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="TKL Keyboards"
-                              value="TKL Keyboards"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="TKL Keyboards"
-                              >TKL Keyboards</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <!-- Macro-categoria: SWITCHES -->
-                    <!-- <div class="accordion-item bg-transparent border-secondary">
-                      <h2 class="accordion-header">
-                        <button
-                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#filterSwitches"
-                        >
-                          Switches
-                        </button>
-                      </h2>
-                      <div
-                        id="filterSwitches"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#filtersAccordion"
-                      >
-                        <div class="accordion-body pt-1 pb-3 text-muted">
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="switchLinear"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="switchLinear"
-                              >Linear</label
-                            >
-                          </div>
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="switchTactile"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="switchTactile"
-                              >Tactile</label
-                            >
-                          </div>
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="switchClicky"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="switchClicky"
-                              >Clicky</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                    <!-- Macro-categoria: KEYCAPS -->
-                    <!-- <div class="accordion-item bg-transparent border-secondary">
-                      <h2 class="accordion-header">
-                        <button
-                          class="accordion-button bg-transparent collapsed shadow-none fs-6 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#filterKeycaps"
-                        >
-                          Keycaps
-                        </button>
-                      </h2>
-                      <div
-                        id="filterKeycaps"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#filtersAccordion"
-                      >
-                        <div class="accordion-body pt-1 pb-3 text-muted">
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="pbtDoubleShot"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="pbtDoubleShot"
-                              >PBT Double-Shot</label
-                            >
-                          </div>
-                          <div class="form-check mb-2">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="absDyeSub"
-                            />
-                            <label
-                              class="form-check-label small"
-                              for="absDyeSub"
-                              >ABS Dye-Sub</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-
-                  <!-- Pulsante Reset Filtri -->
-                  <button class="btn btn-sm btn-outline-secondary w-100 mt-4">
-                    Reset Filters
-                  </button>
-                </div>
+                </div> -->
               </div>
             </aside>
           </div>
-          <div class="col-9 d-flex">
+          <div class="col-9">
             <div class="row gy-4" id="products"></div>
           </div>
         </div>
@@ -420,20 +269,20 @@
 
     <div
       class="modal fade info-modal"
-      id="infoModal1"
       tabindex="-1"
-      aria-labelledby="infoModalLabel1"
+      aria-labelledby="infoModalLabel"
       aria-hidden="true"
+      id='info-modal'
     >
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border border-secondary">
           <div class="modal-header border-bottom border-secondary">
-            <h5 class="modal-title">Apex Pro Wireless</h5>
+            <h5 class="modal-title"></h5>
             <button
               type="button"
               class="btn btn-close btn-close-white"
-              data-bs-dismiss="modal"
               aria-label="Close"
+              data-bs-dismiss="modal"
             ></button>
           </div>
 
@@ -441,53 +290,19 @@
             <div class="row align-items-center" style="height: 100%">
               <div class="col-md-6">
                 <img
-                  src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800"
+                  src=""
                   class="img-fluid rounded-4 border border-secondary"
-                  alt="Apex Pro Zoom"
+                  alt=""
                 />
               </div>
 
               <!-- ADD justify-content-between for forcing price at the bottom -->
-              <div class="col-md-6 mt-3 mt-md-0 d-flex flex-column h-100">
+              <div class="col-md-6 mt-3 mt-md-0 d-flex flex-column justify-content-between h-100">
                 <div class="modal-description scrollable">
                   <h6 class="text-accent fw-bold text-uppercase small">
-                    Specifiche Tecniche
+                    Technical Specifications
                   </h6>
-                  <p class="text-muted small mb-3">
-                    Progettata per offrire il massimo comfort di digitazione e
-                    un profilo acustico thocky senza compromessi.
-                  </p>
-                  <ul class="text-muted small ps-3 mb-3">
-                    <li>Layout 75% compatto con manopola in alluminio</li>
-                    <li>Switch pre-lubrificati di fabbrica (Linear)</li>
-                    <li>Keycaps in PBT double-shot di alta durata</li>
-                    <li>
-                      Tripla modalità di connessione (Bluetooth 5.1, 2.4GHz,
-                      USB-C)
-                    </li>
-                  </ul>
-                  <p class="text-muted small mb-0">
-                    Qwertykeys and Neo Studio are renowned for their
-                    industry-leading craftsmanship, and Ticktype Evoworks shares
-                    the same commitment to excellence. The anodized cases of the
-                    Evo80 undergo a superior 220-mesh sandblasting process
-                    before anodization, and our spray-coated cases are colored
-                    with ultra-fine spray coating powders. Whichever color you
-                    choose, you'll enjoy the same smooth and vivid finish.<br /><br /><br />Each
-                    assembled Evo80 keyboard includes:<br />- CNC aluminum case
-                    <br />- Hotswap PCB <br />- daughterboard and magnetic
-                    connector<br />- switch plate<br />- Switches with spares<br />-
-                    1* set of keycaps in color to match the case<br />- 1*
-                    acoustic package (PET sheet, IXPE sheet, plate foam, 2*
-                    Poron case foam)<br />- stabilizers<br />- 6* butterfly leaf
-                    springs<br />- gaskets with spares<br />- 4* silicone corner
-                    protectors<br />- 4* rubber feet<br />- 2* 4000mAh
-                    batteries<br />- carrying case<br />- USB-C cable<br />-
-                    2.4gHz dongle<br />- Mac add-on kit<br />- spare screws<br />-
-                    spare leaf spring dampeners<br />- spare case silicone
-                    dampeners<br /><br />Please note that all photos are for
-                    reference only; item color, keycaps, and legends may differ.
-                  </p>
+                  <div></div>
                 </div>
 
                 <div class="pt-2 mt-1 border-top">
@@ -500,16 +315,17 @@
                     <div
                       class="d-flex rounded-1 border border-secondary modal-quantity"
                     >
-                      <button class="btn">-</button>
+                      <button class="btn" id="quantity-minus" disabled>-</button>
                       <input
                         type="number"
                         name="quantity"
                         id="quantity"
                         value="1"
+                        min="1"
                       />
-                      <button class="btn">+</button>
+                      <button class="btn" id="quantity-plus">+</button>
                     </div>
-                    <span class="fw-bold fs-4">€189.99</span>
+                    <span class="fw-bold fs-4" id="price"></span>
                   </div>
                 </div>
               </div>
@@ -522,16 +338,16 @@
               class="btn btn-outline-secondary"
               data-bs-dismiss="modal"
             >
-              Chiudi
+              Close
             </button>
             <button
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"
-              data-bs-toggle="modal"
               data-bs-target="#cartModal1"
+              id="info-modal-add-to-cart"
             >
-              Aggiungi al carrello
+              Add to Cart
             </button>
           </div>
         </div>

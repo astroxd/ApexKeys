@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<cart xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation='cart.xsd'>
+    <cart_item>
+        <id>9656111038764</id>
+        <title>Evoworks Evo80 Aluminum TKL Hotswap Wireless Keyboard</title>
+        <price>188.89</price>
+        <quantity>1</quantity>
+        <image src="https://mechanicalkeyboards.com/cdn/shop/files/22909-U3SIV-Shortcut-Studio-Evo80-FR4-Plate-Anodized-Nimbus.jpg?v=1733949003&amp;width=1007" alt="Evoworks Evo80 Keyboard MKLGABKASO |22909|" />
+    </cart_item>
+    <cart_item>
+        <id>8812607177004</id>
+        <title>Ducky Purple / White Pudding 87 Key OEM Profile Double Shot PBT Keycap Set</title>
+        <price>13.89</price>
+        <quantity>2</quantity>
+        <image src="https://mechanicalkeyboards.com/cdn/shop/files/5428_62900680d7969_87-Key-PBT-Seamless-Double-Shot-Pudding-Keycap-Set-PurpleWhite.jpg?v=1707188829&amp;width=2400" alt="Ducky 87 Key PBT Seamless Backlit Double Shot Pudding Keycap Set Purple/White MKUHTGK9V2 |0|" />
+    </cart_item>
+</cart>

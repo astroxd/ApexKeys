@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="cart">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cart_item" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name='id' type='xs:integer'/>
+                            <xs:element name='title' type='xs:string'/>
+                            <xs:element name='price' type='xs:float'/>
+                            <xs:element name='quantity' type='xs:integer' default="1"/>
+                            <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="src" type="xs:string"></xs:attribute>
+                                    <xs:attribute name="alt" type="xs:string" use="optional"></xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem("apexkeys_cart")) || [];
+let cart = [];
 const DISCOUNT = 10;
 const FEE = 20;
 
@@ -34,13 +34,49 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const loadCart = () => {
-  const cartProducts = JSON.parse(localStorage.getItem("apexkeys_cart"));
-  if (cartProducts) {
-    cart = cartProducts;
-  }
+  const xmlPath = "../xml/cart.xml";
+  $.ajax({
+    url: xmlPath,
+    dataType: "xml",
+    success: (result) => {
+      parseXML(result);
+      updateTotal();
+      updateCartDOM(cart);
+    },
+    error: (err) => {
+      console.log(err);
+    },
+  });
 
-  updateTotal();
-  updateCartDOM(cart);
+  // const cartProducts = JSON.parse(localStorage.getItem("apexkeys_cart"));
+  // if (cartProducts) {
+  //   cart = cartProducts;
+  // }
+
+  // updateTotal();
+  // updateCartDOM(cart);
+};
+
+const parseXML = (xml) => {
+  let xmlCart = $(xml).find("cart_item");
+  cart = xmlCart
+    .map((_, c) => {
+      const $c = $(c);
+      let cartItem = {
+        id: parseInt($c.find("> id").text()),
+        title: $c.find("> title").text() ?? "",
+        price: parseFloat($c.find("> price").text() ?? 0) ?? 0,
+        quantity: parseInt($c.find("> quantity").text() ?? 1) ?? 1,
+        image: {
+          src: $c.find("> image").attr("src"),
+          alt: $c.find("> image").attr("alt"),
+        },
+      };
+      return cartItem;
+    })
+    .get();
+
+  console.log(cart);
 };
 
 export const addToCart = (product, quantity = 1) => {
@@ -51,7 +87,6 @@ export const addToCart = (product, quantity = 1) => {
   } else {
     cart.push({
       ...product,
-      price: Number(product.price.substring(1)) ?? 0,
       quantity: quantity,
     });
   }
@@ -94,7 +129,7 @@ const updateQuantity = (productId, quantity = 1, override = false) => {
 };
 
 const removeFromCart = (productId) => {
-  cart = cart.filter((item) => item.id.toString() !== productId);
+  cart = cart.filter((item) => item.id !== parseInt(productId));
   updateTotal();
   updateCartDOM(cart);
   saveCartToLocalStorage();
@@ -111,24 +146,16 @@ const updateCartDOM = (products) => {
       const newCartProduct = `<li class="d-flex border-bottom pb-3 pt-3">
                   <div class="cart-image">
                     <img
-                      src=${product.image}
-                      alt=${product.title}
+                      src=${product.image.src}
+                      alt=${product.image?.alt ?? product.title}
                       class="img-fluid rounded-3"
                     />
                   </div>
                   <div class="d-flex justify-content-between w-100 ps-2">
                     <div class="d-flex flex-column w-100">
                       <span class="fw-bold fs-5">${product.title}</span>
-                      <span class="small"
-                        >opzione: <span class="text-muted">Large</span></span
-                      >
-                      <span class="small"
-                        >opzione: <span class="text-muted">Large</span></span
-                      >
-                      <span class="small"
-                        >opzione: <span class="text-muted">Large</span></span
-                      >
-                      <span class="fw-bold fs-4 mt-auto">$${(product.price * product.quantity).toFixed(2)}</span>
+                      <span class="small mt-auto">Unit price: <span class="text-muted">$${product.price}</span></span>
+                      <span class="fw-bold fs-4">$${(product.price * product.quantity).toFixed(2)}</span>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-end"
@@ -185,17 +212,12 @@ const updateCartDOM = (products) => {
   const quantityInputRefs = document.querySelectorAll("#quantity");
   quantityInputRefs.forEach((input) =>
     input.addEventListener("change", (e) => {
-      console.log(Number(e.currentTarget.value));
-      const newQuantity = Number(e.currentTarget.value);
+      const newQuantity = parseInt(e.currentTarget.value);
       if (!newQuantity) {
         input.value = findInCart(e.currentTarget.dataset.id).quantity;
         return;
       }
-      updateQuantity(
-        e.currentTarget.dataset.id,
-        Number(e.currentTarget.value),
-        true,
-      );
+      updateQuantity(e.currentTarget.dataset.id, newQuantity, true);
     }),
   );
 
@@ -208,5 +230,5 @@ const updateCartDOM = (products) => {
 };
 
 const findInCart = (targetId) => {
-  return cart.find((item) => item.id === Number(targetId));
+  return cart.find((item) => item.id === parseInt(targetId));
 };

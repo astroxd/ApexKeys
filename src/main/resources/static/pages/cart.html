@@ -21,6 +21,11 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-4.0.0.js"
+      integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../style.css" />
     <script type="module" src="../cart.js"></script>
     <title>Cart</title>
@@ -31,7 +36,7 @@
         <div class="row align-items-center">
           <div class="col-auto">
             <a href="../pages/home.html" class="logo">
-              <img src="" alt="" />
+              <img src="../assets/logo.png" alt="" />
               <span class="logo-text"
                 >Apex<span class="text-accent">Keys</span>
               </span>
@@ -54,7 +59,7 @@
           </div>
           <div class="col-auto">
             <div class="nav-right">
-              <div class="dropdown">
+              <!-- <div class="dropdown">
                 <a
                   href="#"
                   class="dropdown-toggle"
@@ -82,9 +87,17 @@
                     >
                   </li>
                 </ul>
-              </div>
+              </div> -->
               <div class="cart-link">
-                <a href="./cart.html" class="btn">🛒</a>
+                <a href="./cart.html" class="btn position-relative">
+                  <re-icon icon="cart-large5" class="fs-3"> </re-icon>
+                  <span
+                    class="position-absolute badge bg-primary"
+                    id="cart-counter-badge"
+                    >3
+                    <span class="visually-hidden">cart items</span>
+                  </span>
+                </a>
               </div>
             </div>
           </div>

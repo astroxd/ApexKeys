@@ -126,6 +126,12 @@ button:disabled,
   border-color: transparent;
 }
 
+select:focus,
+.form-select:focus {
+  border-color: var(--accent-active);
+  box-shadow: 0 0 0 0.25rem var(--accent-glow);
+}
+
 body {
   font-family: var(--font-body);
   font-weight: 400;
@@ -195,6 +201,12 @@ nav {
   text-decoration: none;
   padding-block: 1rem;
   display: inline-flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 48px;
+  transform: translateY(3px) rotate(-30deg);
 }
 
 .logo-text {
@@ -216,6 +228,10 @@ nav {
   padding: 4px 8px;
   border: 2px solid transparent;
   border-radius: 12px;
+}
+
+.search-form button:hover {
+  background-color: unset;
 }
 
 .search button {
@@ -253,6 +269,13 @@ nav {
 .dropdown a {
   text-decoration: none;
   color: var(--text-main);
+}
+
+.cart-link .badge {
+  right: 0;
+  top: 0;
+  transform: translate(20%, -20%);
+  pointer-events: none;
 }
 
 .hero {
@@ -337,16 +360,16 @@ nav {
 }
 
 .card-description {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
-.card-rating-container {
+/* .card-rating-container {
   display: flex;
 }
 
 .card-rating-container re-icon {
   color: gold;
-}
+} */
 
 .card-price {
   font-weight: 700;
