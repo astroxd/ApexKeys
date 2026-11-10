@@ -47,14 +47,6 @@ const loadCart = () => {
       console.log(err);
     },
   });
-
-  // const cartProducts = JSON.parse(localStorage.getItem("apexkeys_cart"));
-  // if (cartProducts) {
-  //   cart = cartProducts;
-  // }
-
-  // updateTotal();
-  // updateCartDOM(cart);
 };
 
 const parseXML = (xml) => {
@@ -80,23 +72,16 @@ const parseXML = (xml) => {
 };
 
 export const addToCart = (product, quantity = 1) => {
-  const existingProduct = findInCart(product.id);
-
-  if (existingProduct) {
-    existingProduct.quantity += quantity;
-  } else {
-    cart.push({
-      ...product,
-      quantity: quantity,
-    });
-  }
-
-  saveCartToLocalStorage();
-};
-
-const saveCartToLocalStorage = () => {
-  localStorage.setItem("apexkeys_cart", JSON.stringify(cart));
-  // localStorage.clear();
+  alert(`${product.title}[${product.id}] added to cart`);
+  // const existingProduct = findInCart(product.id);
+  // if (existingProduct) {
+  //   existingProduct.quantity += quantity;
+  // } else {
+  //   cart.push({
+  //     ...product,
+  //     quantity: quantity,
+  //   });
+  // }
 };
 
 const getCartSubtotal = () => {
@@ -126,13 +111,15 @@ const updateQuantity = (productId, quantity = 1, override = false) => {
 
   updateTotal();
   updateCartDOM(cart);
+  showQuantityChange(existingProduct);
 };
 
 const removeFromCart = (productId) => {
+  const existingProduct = findInCart(productId);
   cart = cart.filter((item) => item.id !== parseInt(productId));
   updateTotal();
   updateCartDOM(cart);
-  saveCartToLocalStorage();
+  alert(`${existingProduct.title} removed from cart!`);
 };
 
 const updateCartDOM = (products) => {
@@ -231,4 +218,8 @@ const updateCartDOM = (products) => {
 
 const findInCart = (targetId) => {
   return cart.find((item) => item.id === parseInt(targetId));
+};
+
+const showQuantityChange = (product) => {
+  alert(`${product.title}'s quantity changed!`);
 };

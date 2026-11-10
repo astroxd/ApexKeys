@@ -240,8 +240,6 @@ const updateDOM = (products = []) => {
                 >
                   <button
                     class="btn btn-primary w-100"
-                    data-bs-toggle="modal"
-                    data-bs-target="#cartModal1"
                     data-id=${product.id}
                     id="add-to-cart-btn"
                   >
@@ -286,128 +284,148 @@ const updateDOM = (products = []) => {
 };
 
 const loadInfoModal = () => {
-  const $infoModal = $("#info-modal")[0];
-  const infoModal = document.getElementById("info-modal");
-  infoModal.addEventListener("click", (e) => {
-    if (e.target === infoModal) {
+  const $infoModal = $("#info-modal");
+
+  // Click sul backdrop della modale
+  $infoModal.on("click", (e) => {
+    if (e.target === $infoModal[0]) {
       closeInfoModal();
     }
   });
+
+  // Chiusura con il tasto Escape
   $infoModal.on("keydown", (e) => {
     if (e.key === "Escape") {
       closeInfoModal();
     }
   });
 
-  const closeButtons = infoModal.querySelectorAll("[data-bs-dismiss='modal']");
-  closeButtons.forEach((closeBtn) => {
-    closeBtn.addEventListener("click", (e) => {
-      closeInfoModal();
-    });
+  // Pulsanti di chiusura interni
+  $infoModal.find("[data-bs-dismiss='modal']").on("click", () => {
+    closeInfoModal();
   });
 
-  const quantityMinusRef = infoModal.querySelector("#quantity-minus");
-  const quantityPlusRef = infoModal.querySelector("#quantity-plus");
-  const quantityInputRef = infoModal.querySelector("#quantity");
-  quantityMinusRef.addEventListener("click", (e) => {
-    quantityMinusRef.disabled =
-      parseInt(quantityInputRef.value) <= 1 ? true : false;
-    if (quantityInputRef.value <= 1) return;
-    quantityInputRef.value -= 1;
+  const $quantityMinus = $infoModal.find("#quantity-minus");
+  const $quantityPlus = $infoModal.find("#quantity-plus");
+  const $quantityInput = $infoModal.find("#quantity");
+
+  // Pulsante meno
+  $quantityMinus.on("click", () => {
+    let currentVal = parseInt($quantityInput.val()) || 1;
+    if (currentVal <= 1) {
+      $quantityMinus.prop("disabled", true);
+      return;
+    }
+    $quantityInput.val(currentVal - 1);
+    $quantityMinus.prop("disabled", parseInt($quantityInput.val()) <= 1);
   });
 
-  quantityPlusRef.addEventListener("click", (e) => {
-    quantityInputRef.value = parseInt(quantityInputRef.value) + 1;
-    quantityMinusRef.disabled =
-      parseInt(quantityInputRef.value) <= 1 ? true : false;
+  // Pulsante più
+  $quantityPlus.on("click", () => {
+    let currentVal = parseInt($quantityInput.val()) || 1;
+    $quantityInput.val(currentVal + 1);
+    $quantityMinus.prop("disabled", parseInt($quantityInput.val()) <= 1);
   });
-  quantityInputRef.addEventListener("change", (e) => {
-    const newQuantity = parseInt(e.currentTarget.value);
-    quantityInputRef.value = newQuantity > 0 ? newQuantity : 1;
-    quantityMinusRef.disabled =
-      parseInt(quantityInputRef.value) <= 1 ? true : false;
+
+  // Modifica manuale dell'input numerico
+  $quantityInput.on("change", (e) => {
+    const newQuantity = parseInt($(e.currentTarget).val()) || 1;
+    const validValue = newQuantity > 0 ? newQuantity : 1;
+
+    $quantityInput.val(validValue);
+    $quantityMinus.prop("disabled", validValue <= 1);
   });
 };
 
 const buildInfoModal = (product) => {
-  const infoModal = document.getElementById("info-modal");
+  const $infoModal = $("#info-modal");
 
-  const modalTitle = infoModal.querySelector(".modal-title");
-  modalTitle.textContent = product.title;
+  //* Set modal title
+  $infoModal.find(".modal-title").text(product.title);
 
-  const modalImg = infoModal.querySelector("img");
-  modalImg.src = product.images[0].src;
-  modalImg.alt = product.images[0].alt ?? product.title;
+  //* Set product image
+  const $modalImg = $infoModal.find("img");
+  $modalImg.attr("src", product.images[0].src);
+  $modalImg.attr("alt", product.images[0].alt ?? product.title);
 
-  const modalDescription = infoModal
-    .querySelector(".modal-description")
-    .querySelector("div");
-  modalDescription.innerHTML = "";
+  //* Set description
+  const $modalDescription = $infoModal.find(".modal-description > div");
+  $modalDescription.empty();
 
   product.description.forEach((desc) => {
     if (desc.type === "div") {
-      const p = document.createElement("p");
-      p.classList.add("text-muted", "small", "mb-3");
-      p.innerHTML = desc.content;
-      modalDescription.appendChild(p);
+      const $p = $("<p>").addClass("text-muted small mb-3").html(desc.content);
+      $modalDescription.append($p);
     } else if (desc.type === "list") {
-      const ul = document.createElement("ul");
-      ul.classList.add("text-muted", "small", "ps-3", "mb-3");
+      const $ul = $("<ul>").addClass("text-muted small ps-3 mb-3");
       desc.items.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.appendChild(li);
+        const $li = $("<li>").text(item);
+        $ul.append($li);
       });
-      modalDescription.appendChild(ul);
+      $modalDescription.append($ul);
     }
   });
 
-  const modalPrice = infoModal.querySelector("#price");
-  modalPrice.textContent = `$${product.price}`;
+  // Set product price
+  $infoModal.find("#price").text(`$${product.price}`);
 
-  const addToCartButton = infoModal.querySelector("#info-modal-add-to-cart");
-  const quantityInputRef = infoModal.querySelector("#quantity");
-  addToCartButton.addEventListener("click", (e) => {
-    addToCart(getCartProduct(product), quantityInputRef.value ?? 1);
+  //* Handle add to cart action, (it needs product ref so it can't stay in loadInfoModal())
+  const $addToCartButton = $infoModal.find("#info-modal-add-to-cart");
+  const $quantityInput = $infoModal.find("#quantity");
+
+  //* .off prevents stacking duplicate listeners each time the modal opens
+  $addToCartButton.off("click").on("click", () => {
+    const quantity = parseInt($quantityInput.val()) || 1;
+    addToCart(getCartProduct(product), quantity);
   });
 
   openInfoModal();
 };
 
-// TODO use jquery
 const openInfoModal = () => {
-  const infoModal = document.getElementById("info-modal");
-  infoModal.style.display = "block";
-  infoModal.classList.add("show");
-  infoModal.setAttribute("aria-hidden", "false");
-  infoModal.setAttribute("role", "dialog");
-  infoModal.focus();
+  const $infoModal = $("#info-modal");
 
-  const body = document.querySelector("body");
-  body.classList.add("modal-open");
-  body.style.overflow = "hidden";
-  body.style.paddingRight = "0px";
+  //* Show modal
+  $infoModal
+    .css("display", "block")
+    .addClass("show")
+    .attr({
+      "aria-hidden": "false",
+      role: "dialog",
+    })
+    .focus();
 
-  const backdropDiv = document.createElement("div");
-  backdropDiv.classList.add("modal-backdrop", "fade", "show");
-  body.appendChild(backdropDiv);
+  //* Lock body scroll to prevent background scrolling (bootstrap default)
+  const $body = $("body");
+  $body.addClass("modal-open").css({
+    overflow: "hidden",
+    paddingRight: "0px",
+  });
+
+  //* Create backdrop layer
+  $("<div>").addClass("modal-backdrop fade show").appendTo($body);
 };
 
 const closeInfoModal = () => {
-  const infoModal = document.getElementById("info-modal");
-  infoModal.style.display = "none";
-  infoModal.classList.remove("show");
-  infoModal.setAttribute("aria-hidden", "true");
-  infoModal.removeAttribute("role");
-  infoModal.blur();
+  const $infoModal = $("#info-modal");
 
-  const body = document.querySelector("body");
-  body.classList.remove("modal-open");
-  body.style.removeProperty("overflow");
-  body.style.removeProperty("padding-right");
+  //* Hide modal
+  $infoModal
+    .css("display", "none")
+    .removeClass("show")
+    .attr("aria-hidden", "true")
+    .removeAttr("role")
+    .blur();
 
-  const backdropDiv = document.querySelector(".modal-backdrop");
-  if (backdropDiv) backdropDiv.remove();
+  //* Restore body scroll
+  const $body = $("body");
+  $body.removeClass("modal-open").css({
+    overflow: "",
+    paddingRight: "",
+  });
+
+  //* Remove the backdrop layer
+  $(".modal-backdrop").remove();
 };
 
 const getCartProduct = (product) => {
