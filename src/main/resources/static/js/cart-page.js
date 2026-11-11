@@ -1,6 +1,13 @@
-let cart = [];
-const DISCOUNT = 10;
-const FEE = 20;
+import {
+  loadCart,
+  getDiscount,
+  getFee,
+  calculateTotal,
+  getCart,
+  updateItemQuantity,
+  removeCartItem,
+  findInCart,
+} from "./cart.js";
 
 let subtotalRef;
 let discountRef;
@@ -18,114 +25,59 @@ document.addEventListener("DOMContentLoaded", () => {
   totalRef = document.getElementById("cart-total");
 
   discountRef = document.getElementById("cart-discount");
-  discountTextRef = discountRef.previousElementSibling;
-  if (discountTextRef) {
-    discountTextRef.textContent += ` (-${DISCOUNT}%)`;
-  }
+  discountTextRef = discountRef?.previousElementSibling;
+  if (discountTextRef) discountTextRef.textContent += ` (-${getDiscount()}%)`;
+
   feeRef = document.getElementById("cart-fee");
-  feeRef.textContent = `$${FEE}`;
+  if (feeRef) feeRef.textContent = `$${getFee()}`;
 
   productListElem = document.getElementById("cart-products");
   cartContentSection = document.getElementById("cart-content-section");
   emptyCartContentSection = document.getElementById("empty-cart-section");
   cartTitle = cartContentSection.previousElementSibling;
 
-  loadCart();
+  loadCart((cartData) => {
+    updateTotalUI();
+    updateCartDOM(cartData);
+  });
 });
 
-const loadCart = () => {
-  const xmlPath = "../xml/cart.xml";
-  $.ajax({
-    url: xmlPath,
-    dataType: "xml",
-    success: (result) => {
-      parseXML(result);
-      updateTotal();
-      updateCartDOM(cart);
-    },
-    error: (err) => {
-      console.log(err);
-    },
-  });
+const updateTotalUI = () => {
+  const totals = calculateTotal();
+
+  if (subtotalRef) subtotalRef.textContent = `$${totals.subtotal}`;
+  if (discountRef) discountRef.textContent = `-$${totals.discount}`;
+  if (totalRef) totalRef.textContent = `$${totals.total}`;
 };
 
-const parseXML = (xml) => {
-  let xmlCart = $(xml).find("cart_item");
-  cart = xmlCart
-    .map((_, c) => {
-      const $c = $(c);
-      let cartItem = {
-        id: parseInt($c.find("> id").text()),
-        title: $c.find("> title").text() ?? "",
-        price: parseFloat($c.find("> price").text() ?? 0) ?? 0,
-        quantity: parseInt($c.find("> quantity").text() ?? 1) ?? 1,
-        image: {
-          src: $c.find("> image").attr("src"),
-          alt: $c.find("> image").attr("alt"),
-        },
-      };
-      return cartItem;
-    })
-    .get();
+const handleQuantityChange = (productId, quantity = 1, override = false) => {
+  const result = updateItemQuantity(productId, quantity, override);
+  if (!result) return;
 
-  console.log(cart);
-};
+  updateTotalUI();
+  updateCartDOM(getCart());
 
-export const addToCart = (product, quantity = 1) => {
-  alert(`${product.title}[${product.id}] added to cart`);
-  // const existingProduct = findInCart(product.id);
-  // if (existingProduct) {
-  //   existingProduct.quantity += quantity;
-  // } else {
-  //   cart.push({
-  //     ...product,
-  //     quantity: quantity,
-  //   });
-  // }
-};
-
-const getCartSubtotal = () => {
-  return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-};
-
-const updateTotal = () => {
-  const subtotal = getCartSubtotal();
-  const discount = (subtotal * DISCOUNT) / 100;
-  const total = subtotal - discount + FEE;
-
-  subtotalRef.textContent = `$${subtotal.toFixed(2)}`;
-  discountRef.textContent = `-$${discount.toFixed(2)}`;
-  totalRef.textContent = `$${total.toFixed(2)}`;
-};
-
-const updateQuantity = (productId, quantity = 1, override = false) => {
-  const existingProduct = findInCart(productId);
-  if (!existingProduct || !quantity) return;
-
-  if (override) {
-    existingProduct.quantity = quantity;
+  if (result.removed) {
+    alert(`${result.existingProduct.title} removed from cart!`);
   } else {
-    existingProduct.quantity += quantity;
+    alert(`${result.existingProduct.title}'s quantity changed!`);
   }
-  if (existingProduct.quantity <= 0) removeFromCart(productId);
-
-  updateTotal();
-  updateCartDOM(cart);
-  showQuantityChange(existingProduct);
 };
 
-const removeFromCart = (productId) => {
-  const existingProduct = findInCart(productId);
-  cart = cart.filter((item) => item.id !== parseInt(productId));
-  updateTotal();
-  updateCartDOM(cart);
-  alert(`${existingProduct.title} removed from cart!`);
+const handleRemoveItem = (productId) => {
+  const removedProduct = removeCartItem(productId);
+
+  updateTotalUI();
+  updateCartDOM(getCart());
+  if (removedProduct) {
+    alert(`${removedProduct.title} removed from cart!`);
+  }
 };
 
 const updateCartDOM = (products) => {
   if (productListElem && products.length) {
     cartContentSection.classList.remove("d-none");
-    cartTitle.classList.remove("d-none");
+    if (cartTitle) cartTitle.classList.remove("d-none");
     emptyCartContentSection.classList.add("d-none");
     productListElem.innerHTML = "";
 
@@ -170,29 +122,26 @@ const updateCartDOM = (products) => {
     }
   } else if (!products.length) {
     cartContentSection.classList.add("d-none");
-    cartTitle.classList.add("d-none");
+    if (cartTitle) cartTitle.classList.add("d-none");
     emptyCartContentSection.classList.remove("d-none");
   }
 
+  //* Bind DOM Event Listeners
   const quantityMinusRefs = document.querySelectorAll("#quantity-minus");
   quantityMinusRefs.forEach((minus) => {
     minus.addEventListener("click", (e) =>
-      updateQuantity(e.currentTarget.dataset.id, -1),
+      handleQuantityChange(e.currentTarget.dataset.id, -1),
     );
     const productFound = findInCart(minus.dataset.id);
     if (productFound) {
-      if (productFound.quantity <= 1) {
-        minus.disabled = true;
-      } else {
-        minus.disabled = false;
-      }
+      minus.disabled = productFound.quantity <= 1;
     }
   });
 
   const quantityPlusRefs = document.querySelectorAll("#quantity-plus");
   quantityPlusRefs.forEach((plus) =>
     plus.addEventListener("click", (e) =>
-      updateQuantity(e.currentTarget.dataset.id, 1),
+      handleQuantityChange(e.currentTarget.dataset.id, 1),
     ),
   );
 
@@ -200,26 +149,18 @@ const updateCartDOM = (products) => {
   quantityInputRefs.forEach((input) =>
     input.addEventListener("change", (e) => {
       const newQuantity = parseInt(e.currentTarget.value);
-      if (!newQuantity) {
+      if (!newQuantity || newQuantity < 0) {
         input.value = findInCart(e.currentTarget.dataset.id).quantity;
         return;
       }
-      updateQuantity(e.currentTarget.dataset.id, newQuantity, true);
+      handleQuantityChange(e.currentTarget.dataset.id, newQuantity, true);
     }),
   );
 
   const cartRemoveRefs = document.querySelectorAll("#cart-remove");
   cartRemoveRefs.forEach((remove) =>
     remove.addEventListener("click", (e) => {
-      removeFromCart(e.currentTarget.dataset.id);
+      handleRemoveItem(e.currentTarget.dataset.id);
     }),
   );
-};
-
-const findInCart = (targetId) => {
-  return cart.find((item) => item.id === parseInt(targetId));
-};
-
-const showQuantityChange = (product) => {
-  alert(`${product.title}'s quantity changed!`);
 };

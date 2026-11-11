@@ -63,7 +63,7 @@ const buildPage = () => {
     productFilter.innerHTML += inputHtml;
   });
 
-  const options = productFilter.querySelectorAll("input") ?? [];
+  const options = productFilter.querySelectorAll("input");
   for (const option of options) {
     option.addEventListener("change", (e) => {
       if (e.target.checked) {
@@ -286,21 +286,21 @@ const updateDOM = (products = []) => {
 const loadInfoModal = () => {
   const $infoModal = $("#info-modal");
 
-  // Click sul backdrop della modale
+  //* Backdrop click listener
   $infoModal.on("click", (e) => {
     if (e.target === $infoModal[0]) {
       closeInfoModal();
     }
   });
 
-  // Chiusura con il tasto Escape
+  //* Close on Escape key press
   $infoModal.on("keydown", (e) => {
     if (e.key === "Escape") {
       closeInfoModal();
     }
   });
 
-  // Pulsanti di chiusura interni
+  //* Internal dismiss buttons listener
   $infoModal.find("[data-bs-dismiss='modal']").on("click", () => {
     closeInfoModal();
   });
@@ -309,7 +309,7 @@ const loadInfoModal = () => {
   const $quantityPlus = $infoModal.find("#quantity-plus");
   const $quantityInput = $infoModal.find("#quantity");
 
-  // Pulsante meno
+  //* Decrement button
   $quantityMinus.on("click", () => {
     let currentVal = parseInt($quantityInput.val()) || 1;
     if (currentVal <= 1) {
@@ -320,14 +320,14 @@ const loadInfoModal = () => {
     $quantityMinus.prop("disabled", parseInt($quantityInput.val()) <= 1);
   });
 
-  // Pulsante più
+  //* Increment button
   $quantityPlus.on("click", () => {
     let currentVal = parseInt($quantityInput.val()) || 1;
     $quantityInput.val(currentVal + 1);
     $quantityMinus.prop("disabled", parseInt($quantityInput.val()) <= 1);
   });
 
-  // Modifica manuale dell'input numerico
+  //* Manual input field change listener
   $quantityInput.on("change", (e) => {
     const newQuantity = parseInt($(e.currentTarget).val()) || 1;
     const validValue = newQuantity > 0 ? newQuantity : 1;
@@ -366,7 +366,7 @@ const buildInfoModal = (product) => {
     }
   });
 
-  // Set product price
+  //* Set product price
   $infoModal.find("#price").text(`$${product.price}`);
 
   //* Handle add to cart action, (it needs product ref so it can't stay in loadInfoModal())
