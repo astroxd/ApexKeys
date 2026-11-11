@@ -110,7 +110,6 @@ export const calculateTotal = () => {
 };
 
 export const notifyCartUpdate = () => {
-  console.log("NOTIFY");
   const count = getCartTotalCount();
   const event = new CustomEvent("cartUpdated", { detail: { count } });
   window.dispatchEvent(event);

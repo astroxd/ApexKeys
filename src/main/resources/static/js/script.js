@@ -240,8 +240,9 @@ const updateDOM = (products = []) => {
     }
 
     for (const product of products) {
-      const newProd = `<div class="col-md-6 col-lg-3">
-            <div class="card">
+      const isFoil = Math.random() < 0.01;
+      const newProd = `<div class="col-md-6 col-lg-3" style="perspective: 1000px;">
+            <div class="card ${isFoil ? "foil" : ""}">
               <img
                 src=${product.images[0].src}
                 alt=${product.title}
