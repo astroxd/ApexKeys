@@ -6,6 +6,9 @@ export const getCart = () => cart;
 export const getDiscount = () => DISCOUNT;
 export const getFee = () => FEE;
 
+export const getCartTotalCount = () => {
+  return cart.reduce((total, item) => total + item.quantity, 0);
+};
 export const findInCart = (targetId) => {
   return cart.find((item) => item.id === parseInt(targetId));
 };
@@ -17,10 +20,11 @@ export const loadCart = (callback) => {
     dataType: "xml",
     success: (result) => {
       parseXML(result);
+      notifyCartUpdate();
       if (callback) callback(cart);
     },
     error: (err) => {
-      console.log(err);
+      console.log("Error loading cart XML:", err);
     },
   });
 };
@@ -43,8 +47,6 @@ const parseXML = (xml) => {
       return cartItem;
     })
     .get();
-
-  console.log(cart);
 };
 
 export const addToCart = (product, quantity = 1) => {
@@ -58,6 +60,7 @@ export const addToCart = (product, quantity = 1) => {
   //     quantity: quantity,
   //   });
   // }
+  notifyCartUpdate();
 };
 
 export const updateItemQuantity = (
@@ -76,12 +79,15 @@ export const updateItemQuantity = (
   const removed = existingProduct.quantity <= 0;
   if (removed) removeFromCart(productId);
 
+  notifyCartUpdate();
+
   return { existingProduct, removed };
 };
 
 export const removeCartItem = (productId) => {
   const existingProduct = findInCart(productId);
   cart = cart.filter((item) => item.id !== parseInt(productId));
+  notifyCartUpdate();
   return existingProduct;
 };
 
@@ -101,4 +107,11 @@ export const calculateTotal = () => {
     discountPercentage: DISCOUNT,
     fee: FEE,
   };
+};
+
+export const notifyCartUpdate = () => {
+  console.log("NOTIFY");
+  const count = getCartTotalCount();
+  const event = new CustomEvent("cartUpdated", { detail: { count } });
+  window.dispatchEvent(event);
 };

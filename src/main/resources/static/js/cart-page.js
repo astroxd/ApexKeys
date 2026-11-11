@@ -7,6 +7,7 @@ import {
   updateItemQuantity,
   removeCartItem,
   findInCart,
+  getCartTotalCount,
 } from "./cart.js";
 
 let subtotalRef;
@@ -39,8 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
   loadCart((cartData) => {
     updateTotalUI();
     updateCartDOM(cartData);
+
+    updateNavbarCartCount(getCartTotalCount());
   });
 });
+
+//* Navbar cart count
+window.addEventListener("cartUpdated", (e) => {
+  updateNavbarCartCount(e.detail.count);
+});
+
+const updateNavbarCartCount = (count) => {
+  const badgeRef = document.getElementById("cart-counter-badge");
+  if (badgeRef) {
+    if (count > 0) {
+      badgeRef.textContent = count;
+      badgeRef.classList.remove("d-none");
+    } else {
+      badgeRef.textContent = "0";
+      badgeRef.classList.add("d-none");
+    }
+  }
+};
+
+//* -------------------------------------------------
 
 const updateTotalUI = () => {
   const totals = calculateTotal();

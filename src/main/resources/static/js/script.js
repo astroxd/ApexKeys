@@ -1,4 +1,4 @@
-import { addToCart } from "./cart.js";
+import { addToCart, getCartTotalCount, loadCart } from "./cart.js";
 
 const ProductTypes = ["keyboards", "keycaps", "switches"];
 const ProductSortOptions = [
@@ -25,9 +25,31 @@ let query = "";
 let sort = ProductSortOptions[0].value;
 
 document.addEventListener("DOMContentLoaded", () => {
+  loadCart();
+  updateNavbarCartCount(getCartTotalCount());
   loadData();
   buildPage();
 });
+
+//* Navbar cart count
+window.addEventListener("cartUpdated", (e) => {
+  updateNavbarCartCount(e.detail.count);
+});
+
+const updateNavbarCartCount = (count) => {
+  const badgeRef = document.getElementById("cart-counter-badge");
+  if (badgeRef) {
+    if (count > 0) {
+      badgeRef.textContent = count;
+      badgeRef.classList.remove("d-none");
+    } else {
+      badgeRef.textContent = "0";
+      badgeRef.classList.add("d-none");
+    }
+  }
+};
+
+//* -------------------------------------------------
 
 const buildPage = () => {
   const navbarSearchForm = document.getElementById("navbar-search-form");
