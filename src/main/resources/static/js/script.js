@@ -400,6 +400,7 @@ const buildInfoModal = (product) => {
   $addToCartButton.off("click").on("click", () => {
     const quantity = parseInt($quantityInput.val()) || 1;
     addToCart(getCartProduct(product), quantity);
+    closeInfoModal();
   });
 
   openInfoModal();
