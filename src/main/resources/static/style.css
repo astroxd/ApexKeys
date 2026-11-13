@@ -5,9 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   /* logo padding-block + logo img width + main section margin-top */
-  scroll-padding-top: calc(2rem + 48px + 3rem);
+  /* scroll-padding-top: calc(2rem + 48px + 3rem); */
 }
 
 :root {
@@ -368,6 +369,14 @@ nav {
   gap: 0.25rem;
 }
 
+.card-title {
+  cursor: pointer;
+}
+
+.card-title:hover {
+  text-decoration: underline;
+}
+
 .card-description {
   font-size: 0.8rem;
 }
@@ -465,7 +474,6 @@ nav {
 
 #cart-products > li:last-child {
   border-bottom: none !important;
-  /* padding-bottom: 0 !important; */
 }
 
 #cart-products > li re-icon {

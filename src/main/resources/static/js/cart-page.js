@@ -115,7 +115,7 @@ const updateCartDOM = (products) => {
                   </div>
                   <div class="d-flex justify-content-between w-100 ps-2">
                     <div class="d-flex flex-column w-100">
-                      <span class="fw-bold fs-5">${product.title}</span>
+                      <span class="fw-bold fs-5" style="line-height: 1.3;">${product.title}</span>
                       <span class="small mt-auto">Unit price: <span class="text-muted">$${product.price}</span></span>
                       <span class="fw-bold fs-4">$${(product.price * product.quantity).toFixed(2)}</span>
                     </div>

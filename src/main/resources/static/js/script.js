@@ -242,7 +242,7 @@ const updateDOM = (products = []) => {
     for (const product of products) {
       const isFoil = Math.random() < 0.01;
       const newProd = `<div class="col-md-6 col-lg-3" style="perspective: 1000px;">
-            <div class="card ${isFoil ? "foil" : ""}">
+            <div class="card ${isFoil ? "foil" : ""}" data-id=${product.id}>
               <img
                 src=${product.images[0].src}
                 alt=${product.title}
@@ -263,14 +263,13 @@ const updateDOM = (products = []) => {
                 >
                   <button
                     class="btn btn-primary w-100"
-                    data-id=${product.id}
                     id="add-to-cart-btn"
+                    ${product.available ? "" : "disabled"}                  
                   >
                     Add To Cart
                   </button>
                   <button
                     class="btn btn-outline-primary w-100"
-                    data-id=${product.id}
                     id="info-btn"
                   >
                     More details
@@ -282,26 +281,23 @@ const updateDOM = (products = []) => {
 
       row.innerHTML += newProd;
     }
-    const addButtons = row.querySelectorAll("#add-to-cart-btn");
-    addButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        const productId = parseInt(e.currentTarget.dataset.id);
-        const productFound = products.find((p) => p.id === productId);
-        if (productFound) {
-          addToCart(getCartProduct(productFound));
-        }
-      });
-    });
 
-    const infoButtons = row.querySelectorAll("#info-btn");
-    infoButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
-        const productId = parseInt(e.currentTarget.dataset.id);
-        const productFound = products.find((p) => p.id === productId);
-        if (productFound) {
-          buildInfoModal(productFound);
-        }
-      });
+    row.addEventListener("click", (e) => {
+      const card = e.target.closest(".card");
+      if (!card) return;
+
+      const productId = parseInt(card.dataset.id);
+      const productFound = products.find((p) => p.id === productId);
+      if (!productFound) return;
+
+      if (e.target.closest("#add-to-cart-btn")) {
+        addToCart(getCartProduct(productFound));
+      } else if (
+        e.target.closest("#info-btn") ||
+        e.target.closest(".card-title")
+      ) {
+        buildInfoModal(productFound);
+      }
     });
   }
 };
@@ -395,13 +391,18 @@ const buildInfoModal = (product) => {
   //* Handle add to cart action, (it needs product ref so it can't stay in loadInfoModal())
   const $addToCartButton = $infoModal.find("#info-modal-add-to-cart");
   const $quantityInput = $infoModal.find("#quantity");
+  $quantityInput.val(1); //* reset counter to 1
 
-  //* .off prevents stacking duplicate listeners each time the modal opens
-  $addToCartButton.off("click").on("click", () => {
-    const quantity = parseInt($quantityInput.val()) || 1;
-    addToCart(getCartProduct(product), quantity);
-    closeInfoModal();
-  });
+  if (product.available) {
+    //* .off prevents stacking duplicate listeners each time the modal opens
+    $addToCartButton.off("click").on("click", () => {
+      const quantity = parseInt($quantityInput.val()) || 1;
+      addToCart(getCartProduct(product), quantity);
+      closeInfoModal();
+    });
+  } else {
+    $addToCartButton.prop("disabled", true);
+  }
 
   openInfoModal();
 };
@@ -427,19 +428,22 @@ const openInfoModal = () => {
   });
 
   //* Create backdrop layer
-  $("<div>").addClass("modal-backdrop fade show").appendTo($body);
+  if ($(".modal-backdrop").length === 0) {
+    $("<div>").addClass("modal-backdrop fade show").appendTo($body);
+  }
 };
 
 const closeInfoModal = () => {
   const $infoModal = $("#info-modal");
 
   //* Hide modal
+  $infoModal.find(":focus").blur();
+
   $infoModal
     .css("display", "none")
     .removeClass("show")
     .attr("aria-hidden", "true")
-    .removeAttr("role")
-    .blur();
+    .removeAttr("role");
 
   //* Restore body scroll
   const $body = $("body");
